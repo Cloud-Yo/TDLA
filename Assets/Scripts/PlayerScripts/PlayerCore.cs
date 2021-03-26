@@ -20,15 +20,6 @@ public class PlayerCore : MonoBehaviour
         transform.position = new Vector3(0,0,transform.position.z);    
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("EnemyLaser"))
-        {
-            Destroy(other.gameObject);
-            TakeDamage();
-        }
-    }
-
     public void TakeDamage()
     {
         _lives--;

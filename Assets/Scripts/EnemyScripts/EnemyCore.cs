@@ -9,15 +9,17 @@ public class EnemyCore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerLaser"))
-        {
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-        }
-        else if(other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerCore>().TakeDamage();
-            Destroy(this.gameObject);
-        }
+
+         if(other.CompareTag("PlayerLaser"))
+         {
+             Destroy(other.gameObject);
+             Destroy(this.gameObject);
+         }
+         else if(other.CompareTag("Player"))
+         {
+             other.GetComponent<PlayerCore>()?.TakeDamage();
+             Destroy(this.gameObject);
+         }
+
     }
 }

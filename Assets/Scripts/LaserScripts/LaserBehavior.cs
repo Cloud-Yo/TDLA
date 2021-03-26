@@ -7,6 +7,7 @@ public class LaserBehavior : MonoBehaviour
     [SerializeField] private float _spd = 10f;
     private Vector3 _dir;
     private Vector3 _startPos;
+    private bool _playerLaser;
 
     private void Start()
     {
@@ -14,10 +15,12 @@ public class LaserBehavior : MonoBehaviour
         if(this.transform.CompareTag("PlayerLaser"))
         {
             _dir = Vector3.up;
+            _playerLaser = true;
         }
-        else
+        else if(this.transform.CompareTag("EnemyLaser"))
         {
             _dir = Vector3.down;
+            _playerLaser = false;
         }
     }
 
@@ -45,5 +48,19 @@ public class LaserBehavior : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy") && _playerLaser)
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if(other.CompareTag("Player") && !_playerLaser)
+        {
+            other.GetComponent<PlayerCore>()?.TakeDamage();
+            Destroy(this.gameObject);
+        }
     }
 }

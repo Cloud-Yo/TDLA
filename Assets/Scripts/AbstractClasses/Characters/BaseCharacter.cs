@@ -6,5 +6,6 @@ public abstract class BaseCharacter : MonoBehaviour
 {
     [SerializeField] private float _spd;
     [SerializeField] private Rigidbody _myRB = null;
-    
+    [SerializeField] private int _health;
+
 }
