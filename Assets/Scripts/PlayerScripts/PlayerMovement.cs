@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _spd = 5f;
     #endregion
 
+    
     void Start()
     {
        MyMoveDelegate = StandardMovement;
@@ -33,15 +34,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void RestrictMovement()
     {
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.25f, 1f), 0);
-        if(transform.position.x > 11f)
-        {
-            transform.position = new Vector3(-11f, transform.position.y, 0);
-        }
-        else if(transform.position.x < -11f)
-        {
-            transform.position = new Vector3(11f, transform.position.y, 0);
-        }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -12.25f, 12.25f), Mathf.Clamp(transform.position.y, -8f, 1f), 0);
+       
     }
 
 

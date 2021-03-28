@@ -13,6 +13,9 @@ public class PlayerCore : MonoBehaviour
 
     [Header("Player Variables")]
     [SerializeField] private int _lives = 3;
+
+    [Header("Manager Components")]
+    [SerializeField] private SpawnManager _mySM = null;
     
 
     void Start()
@@ -26,6 +29,7 @@ public class PlayerCore : MonoBehaviour
 
         if (_lives < 1)
         {
+            _mySM.GameOver();
             Destroy(this.gameObject);
         }
     }

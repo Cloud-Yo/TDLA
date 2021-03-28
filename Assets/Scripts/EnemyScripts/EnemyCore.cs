@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyCore : MonoBehaviour
 {
-    [SerializeField] private Collider _myColl = null;
-    [SerializeField] private Rigidbody _myRB = null;
+    [SerializeField] private UIManager _myUIM = null;
+    [SerializeField] private GameManager _myGM = null;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,8 @@ public class EnemyCore : MonoBehaviour
          }
          else if(other.CompareTag("Player"))
          {
+             
+             other.GetComponent<Player>()?.TakeDamage();
              other.GetComponent<PlayerCore>()?.TakeDamage();
              Destroy(this.gameObject);
          }

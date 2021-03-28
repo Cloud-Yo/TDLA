@@ -6,10 +6,12 @@ public class SpawnManager : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] private GameObject _baseEnemyPrefab = null;
+    [SerializeField] private GameObject _enemyContainer = null;
 
     [Header("Variables")]
     [SerializeField] private float _enemySpawnIntervalMin = 2f;
     [SerializeField] private float _enemySpawnIntervalMax = 5f;
+    [SerializeField] private bool _gameOver = false;
 
     void Start()
     {
@@ -18,10 +20,16 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnEnemyRoutine()
     {
-        while(true)
+        while(!_gameOver)
         {
             yield return new WaitForSeconds(Random.Range(_enemySpawnIntervalMin, _enemySpawnIntervalMax));
-            Instantiate(_baseEnemyPrefab, transform.position, Quaternion.identity);
+            GameObject e = Instantiate(_baseEnemyPrefab, transform.position, Quaternion.identity);
+            e.transform.SetParent(_enemyContainer.transform);
         }
+    }
+
+    public void GameOver()
+    {
+        _gameOver = true;
     }
 }
