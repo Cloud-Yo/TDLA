@@ -6,9 +6,13 @@ public class EnemyCore : MonoBehaviour
 {
     [SerializeField] private UIManager _myUIM = null;
     [SerializeField] private GameManager _myGM = null;
-    
+    private void OnEnable()
+    {
+        _myGM = FindObjectOfType<GameManager>();
+        _myUIM = FindObjectOfType<UIManager>();
+    }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
          if(other.CompareTag("PlayerLaser"))

@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public delegate void MoveDelegate(Vector2 mov);
     public static MoveDelegate MyMoveDelegate;
     private Vector2 _mov;
-    [SerializeField] private float _spd = 5f;
+    [SerializeField] private bool _accelerate = false;
+    [SerializeField] private float _spd = 3f;
+    [SerializeField] private Animator _myAN = null;
     #endregion
 
     
@@ -20,7 +22,14 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovementInput();
- 
+        if(Accelerate() && MyMoveDelegate != TurboMovement)
+        {
+            MyMoveDelegate = TurboMovement;
+        }
+        else if(MyMoveDelegate != StandardMovement)
+        {
+            MyMoveDelegate = StandardMovement;
+        }
     }
     private void LateUpdate()
     {
@@ -29,15 +38,20 @@ public class PlayerMovement : MonoBehaviour
    
     private void MovementInput()
     {
-        _mov = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        _mov = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        _myAN.SetFloat("TurnFloat", _mov.x);
         MyMoveDelegate?.Invoke(_mov);
     }
     private void RestrictMovement()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -12.25f, 12.25f), Mathf.Clamp(transform.position.y, -8f, 1f), 0);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5.75f, 5.75f), Mathf.Clamp(transform.position.y, -3.65f, 0.5f));
        
     }
 
+    private bool Accelerate()
+    {
+        return Input.GetKey(KeyCode.LeftShift) ? true : false;
+    }
 
     #region MovementTypes
     private void StandardMovement(Vector2 move)

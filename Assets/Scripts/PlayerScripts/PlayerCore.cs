@@ -8,8 +8,9 @@ public class PlayerCore : MonoBehaviour
     [Header("Player Components")]
     [SerializeField] private PlayerMovement _myPMove = null;
     [SerializeField] private PlayerShooting _myPShoot = null;
-    [SerializeField] private Rigidbody _myRB = null;
+    [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private Collider _myColl = null;
+    [SerializeField] private PlayerAnimations _myAN = null;
 
     [Header("Player Variables")]
     [SerializeField] private int _lives = 3;
@@ -34,4 +35,17 @@ public class PlayerCore : MonoBehaviour
         }
     }
 
+    public void StartTrippleShot()
+    {
+        _myAN.ActivateSideCannons(true);
+        _myPShoot.SetTripleShot();
+        //StartCoroutine(TSCooldown());
+    }
+
+    IEnumerator TSCooldown()
+    {
+        yield return new WaitForSeconds(5f);
+        _myAN.ActivateSideCannons(false);
+        _myPShoot.SetNormalShot();
+    }
 }

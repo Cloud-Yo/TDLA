@@ -50,7 +50,7 @@ public class LaserBehavior : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Enemy") && _playerLaser)
         {

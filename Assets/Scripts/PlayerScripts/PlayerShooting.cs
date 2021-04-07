@@ -14,15 +14,21 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private ParticleSystem _myPartSys = null;
     #endregion
 
+    [Header("Components")]
+    [SerializeField] private PlayerAnimations _myAN = null;
+    [SerializeField] private ParticleSystem[] _sideSmoke;
+    [SerializeField] private ParticleSystem _turretSmoke = null;
+
     #region Ammo Variables
     [Header("Ammo")]
     [SerializeField] private GameObject _laserPrefab = null;
-    [SerializeField] private Vector3 _offset = new Vector3(0f, 0.8f, 0f);
+    [SerializeField] private GameObject _tripleShot = null;
+    [SerializeField] private Vector3 _offset = new Vector3(0f, 0.475f, 0f);
     #endregion
 
     void Start()
     {
-      MyShootingDelegate = FireLaser;
+      MyShootingDelegate = NormalShot;
     }
 
     private void Update()
@@ -39,6 +45,7 @@ public class PlayerShooting : MonoBehaviour
             //Shoot
             MyShootingDelegate?.Invoke();
             _shotReady = Time.time + _fireRate;
+            
             _canFire = false;
         }
     }
@@ -53,16 +60,36 @@ public class PlayerShooting : MonoBehaviour
     }
 
     #region Ammo Types
-    private void FireLaser()
+    private void NormalShot()
     {
-        var laser = Instantiate(_laserPrefab, transform.position + _offset, Quaternion.identity);
+        var laser = Instantiate(_laserPrefab, transform.position + _offset , Quaternion.identity);
         laser.transform.tag = "PlayerLaser";
-        _myPartSys.Emit(1);
+        _myAN.CannonShoot();
+        _turretSmoke.Emit(1);
+        //_myPartSys.Emit(1);
     }
 
     private void FireTripleShot()
     {
-
+        var laser = Instantiate(_tripleShot, transform.position, Quaternion.identity);
+        laser.transform.tag = "PlayerLaser";
+        _myAN.CannonShoot();
+        _myAN.SideCannonShoot();
+        _turretSmoke.Emit(1);
+        foreach (var item in _sideSmoke)
+        {
+            item.Emit(1);
+        }
     }
     #endregion
+
+    public void SetTripleShot()
+    {
+        MyShootingDelegate = FireTripleShot;
+    }
+
+    public void SetNormalShot()
+    {
+        MyShootingDelegate = NormalShot;
+    }
 }

@@ -7,12 +7,14 @@ public class EnemyMovement : MonoBehaviour
 {
     private Action OnMoving;
     [SerializeField] private float _spd = 2f;
-    [SerializeField] private Rigidbody _myRB = null;
+    [SerializeField] private float _spdMult = 2f;
+    [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private GameManager _gm = null;
+    [SerializeField] private EnemyCore _myEC = null;
 
     private void OnEnable()
     {
-        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _gm = FindObjectOfType<GameManager>();
         GameManager.OnSetGlobalSpeed += SetEnemySpeed;
     }
     private void OnDisable()
@@ -22,12 +24,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void SetEnemySpeed(float s)
     {
-        _spd = s * 8f;
+        _spd = s * _spdMult;
     }
 
     void Start()
     {
-       _spd = _gm.GetWorldSpeed() * 8f;
+       _spd = _gm.GetWorldSpeed() * _spdMult;
        OnMoving = BasicEnemyMovement;
        ResetPosition();
     }
@@ -48,12 +50,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void ResetPosition()
     {
-        transform.position = new Vector3(UnityEngine.Random.Range(-9f, 9f), 8f, 0f);
+        transform.position = new Vector2(UnityEngine.Random.Range(-5.5f, 5.5f), 8f);
 
     }
 
     void BasicEnemyMovement()
     {
-        transform.Translate(Vector3.down * _spd * Time.deltaTime);
+        transform.Translate(Vector2.down * _spd * Time.deltaTime);
     }
 }
