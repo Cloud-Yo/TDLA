@@ -14,9 +14,10 @@ public class PlayerCore : MonoBehaviour
 
     [Header("Player Variables")]
     [SerializeField] private int _lives = 3;
+    [SerializeField] private bool _shield = false;
 
     [Header("Manager Components")]
-    [SerializeField] private SpawnManager _mySM = null;
+    [SerializeField] private EnemySpawnManager _mySM = null;
     
 
     void Start()
@@ -26,20 +27,32 @@ public class PlayerCore : MonoBehaviour
 
     public void TakeDamage()
     {
-        _lives--;
-
-        if (_lives < 1)
+        
+        if(_shield)
         {
-            _mySM.GameOver();
-            Destroy(this.gameObject);
+            _shield = false;
+            _myAN.ActivateShield(false);
+            return;
         }
+        else
+        {
+            _lives--;
+
+            if (_lives < 1)
+            {
+                _mySM.GameOver();
+                Destroy(this.gameObject);
+            }
+        }
+  
+       
     }
 
     public void StartTrippleShot()
     {
         _myAN.ActivateSideCannons(true);
         _myPShoot.SetTripleShot();
-        //StartCoroutine(TSCooldown());
+        StartCoroutine(TSCooldown());
     }
 
     IEnumerator TSCooldown()
@@ -47,5 +60,12 @@ public class PlayerCore : MonoBehaviour
         yield return new WaitForSeconds(5f);
         _myAN.ActivateSideCannons(false);
         _myPShoot.SetNormalShot();
+    }
+
+    public void StartShield()
+    {
+        _myAN.ActivateShield(true);
+        _shield = true;
+        
     }
 }

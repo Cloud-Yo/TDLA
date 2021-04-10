@@ -29,5 +29,10 @@ public  class PlayerAnimations : MonoBehaviour
     {
         _sideCannonAN.SetTrigger("SC_Shoot");
     }
+
+    public void ActivateShield(bool x)
+    {
+        _shieldAN.SetBool("Shield", x);
+    }
     #endregion
 }

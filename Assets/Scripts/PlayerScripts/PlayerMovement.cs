@@ -64,4 +64,17 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(move * (_spd * 2f) * Time.deltaTime);
     }
     #endregion
+
+    public void StartSpeedBoost()
+    {
+        StartCoroutine(SpeedBoostRoutine());
+    }
+
+    IEnumerator SpeedBoostRoutine()
+    {
+        float s = _spd;
+        _spd *= 2f;
+        yield return new WaitForSeconds(5f);
+        _spd = s;
+    }
 }

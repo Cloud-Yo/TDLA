@@ -9,20 +9,20 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private Sprite[] _types;
     [SerializeField] float _spd = 2f;
     [SerializeField] float _rotSpd = 2f;
-    [SerializeField] private int _index = 0;
+    [SerializeField] private int _type = 0;
     [SerializeField] private GameManager _myGM = null;
 
     void Start()
     {
         _myGM = FindObjectOfType<GameManager>();
-        _puType.sprite = _types[0];
+        _puType.sprite = _types[_type];
         _spd = _myGM.GetWorldSpeed() * 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _cog.transform.Rotate(new Vector3(0,0,1), _spd * _rotSpd);
+        _cog.transform.Rotate(new Vector3(0,0,1), 2 * _rotSpd);
         transform.Translate(Vector2.down * _spd * Time.deltaTime);
         if(transform.position.y < -5f)
         {
@@ -34,14 +34,33 @@ public class PowerUp : MonoBehaviour
     public void SetType(int i)
     {
         _puType.sprite = _types[i];
-        _index = i;
+        _type = i;
+    }
+    public void RandType()
+    {
+        int i = Random.Range(0, _types.Length);
+        _puType.sprite = _types[i];
+        _type = i;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerCore>().StartTrippleShot();
+
+            switch(_type)
+            {
+                case 0:
+                    collision.GetComponent<PlayerCore>()?.StartTrippleShot();
+                    break;
+                case 1:
+                    collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();
+                    break;
+                case 2:
+                    collision.GetComponent<PlayerCore>()?.StartShield();
+                    break;
+            }
+            
             Destroy(this.gameObject);
         }
     }
