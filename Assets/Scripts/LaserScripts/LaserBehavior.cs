@@ -50,17 +50,4 @@ public class LaserBehavior : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Enemy") && _playerLaser)
-        {
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-        }
-        else if(other.CompareTag("Player") && !_playerLaser)
-        {
-            other.GetComponent<PlayerCore>()?.TakeDamage();
-            Destroy(this.gameObject);
-        }
-    }
 }

@@ -11,6 +11,7 @@ public class PlayerCore : MonoBehaviour
     [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private Collider _myColl = null;
     [SerializeField] private PlayerAnimations _myAN = null;
+    [SerializeField] private GameObject[] _damageFX;
 
     [Header("Player Variables")]
     [SerializeField] private int _lives = 3;
@@ -18,10 +19,17 @@ public class PlayerCore : MonoBehaviour
 
     [Header("Manager Components")]
     [SerializeField] private EnemySpawnManager _mySM = null;
+    [SerializeField] private UIManager _myUIM = null;
+    [SerializeField] private GameManager _myGM = null;
+    [SerializeField] private HealthUIManager _myHUIM = null;
     
 
     void Start()
     {
+        foreach (GameObject fx in _damageFX)
+        {
+            fx.SetActive(false);
+        }
         transform.position = new Vector3(0,0,transform.position.z);    
     }
 
@@ -38,9 +46,28 @@ public class PlayerCore : MonoBehaviour
         {
             _lives--;
 
+            switch (_lives)
+            {
+                case 2:
+                    _damageFX[0].SetActive(true);
+                    
+                    break;
+                case 1:
+                    _damageFX[1].SetActive(true);
+                    
+                    break;
+                case 0:
+                    
+                    break;
+                default:
+                    break;
+            }
+            _myHUIM.UpdateLifeLights(_lives);
             if (_lives < 1)
             {
                 _mySM.GameOver();
+                _myUIM.GameOver();
+                _myGM.GameOver();
                 Destroy(this.gameObject);
             }
         }

@@ -11,9 +11,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private GameManager _gm = null;
     [SerializeField] private EnemyCore _myEC = null;
+    [SerializeField] private UIManager _myUIM = null;
 
     private void OnEnable()
     {
+        _myUIM = FindObjectOfType<UIManager>();
         _gm = FindObjectOfType<GameManager>();
         GameManager.OnSetGlobalSpeed += SetEnemySpeed;
     }
@@ -44,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(transform.position.y < -7.5f)
         {
+            _myUIM.SetInfoText(false);
             ResetPosition();
         }
     }

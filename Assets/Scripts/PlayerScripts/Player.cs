@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         _health--;
         if(_health < 1)
         {
-            _myGM.GameIsOver();
+            _myGM.GameOver();
             Destroy(this.gameObject);
         }
     }

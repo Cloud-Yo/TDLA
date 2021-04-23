@@ -6,8 +6,14 @@ public class EnemyCore : MonoBehaviour
 {
     [SerializeField] private UIManager _myUIM = null;
     [SerializeField] private GameManager _myGM = null;
+    [SerializeField] private GameObject _explosionFX = null;
+    [SerializeField] private int _points = 35;
+    [SerializeField] private ScoreManager _mySM = null;
+
     private void OnEnable()
     {
+
+        _mySM = FindObjectOfType<ScoreManager>();
         _myGM = FindObjectOfType<GameManager>();
         _myUIM = FindObjectOfType<UIManager>();
     }
@@ -17,15 +23,23 @@ public class EnemyCore : MonoBehaviour
 
          if(other.CompareTag("PlayerLaser"))
          {
-             Destroy(other.gameObject);
-             Destroy(this.gameObject);
+            Destroy(other.gameObject);
+            Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            _mySM.UpdateScore(_points);
+            _myUIM.SetInfoText(true);
+            Destroy(this.gameObject);
          }
          else if(other.CompareTag("Player"))
          {
              
              other.GetComponent<Player>()?.TakeDamage();
              other.GetComponent<PlayerCore>()?.TakeDamage();
-             Destroy(this.gameObject);
+            GameObject x = Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            x.transform.SetParent(this.transform.parent);
+            _mySM.UpdateScore(_points);
+            _myUIM.SetInfoText(true);
+            Destroy(this.gameObject);
+
          }
 
     }

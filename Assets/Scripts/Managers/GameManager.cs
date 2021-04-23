@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +15,15 @@ public class GameManager : MonoBehaviour
         OnSetGlobalSpeed?.Invoke(_gmSpeed);
     }
 
-    public void GameIsOver()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && _gameOver)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    public void GameOver()
     {
         _gameOver = true;
         Debug.Log("Game is over!");
