@@ -16,11 +16,14 @@ public class UIManager : MonoBehaviour
     private int _enKill = 0;
     private int _enMiss = 0;
     [SerializeField] private TMP_Text _enMissTxt = null;
+    [SerializeField] private CanvasGroup _myCG;
+    [SerializeField] private static bool _uiAlpha = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        _myCG = GameObject.Find("TankUIBase").GetComponent<CanvasGroup>();
         _enKill = 0;
         _enKillTxt.SetText("000");
         _enMiss = 0;
@@ -31,7 +34,21 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeUIOpacity();
+    }
+
+    private void ChangeUIOpacity()
+    {
+        if(_uiAlpha && _myCG.alpha > 0.35f)
+        {
+            _myCG.alpha -= Time.deltaTime;
+
+        }
+        else if (!_uiAlpha && _myCG.alpha < 1f)
+        {
+            _myCG.alpha += Time.deltaTime;
+            
+        }
     }
 
     public void GameOver()
@@ -65,6 +82,11 @@ public class UIManager : MonoBehaviour
             _enMiss++;
             _enMissTxt.SetText(_enMiss.ToString());
         }
+    }
+
+    public void SetUIOpacity(bool x)
+    {
+        _uiAlpha = x;
     }
 
 }

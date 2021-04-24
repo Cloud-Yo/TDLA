@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _mov;
     [SerializeField] private bool _accelerate = false;
     [SerializeField] private float _spd = 3f;
+    [SerializeField] private float _accelSpd = 1.5f;
     [SerializeField] private Animator _myAN = null;
     #endregion
 
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TurboMovement(Vector2 move)
     {
-        transform.Translate(move * (_spd * 2f) * Time.deltaTime);
+        transform.Translate(move * (_spd * _accelSpd) * Time.deltaTime);
     }
     #endregion
 
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator SpeedBoostRoutine()
     {
         float s = _spd;
-        _spd *= 2f;
+        _spd *= _accelSpd;
         yield return new WaitForSeconds(5f);
         _spd = s;
     }

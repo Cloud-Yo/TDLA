@@ -95,4 +95,22 @@ public class PlayerCore : MonoBehaviour
         _shield = true;
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("UI"))
+        {
+            _myUIM.SetUIOpacity(true);
+            Debug.Log("Entered UI");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("UI"))
+        {
+            _myUIM.SetUIOpacity(false);
+            Debug.Log("Left UI");
+        }
+    }
 }
