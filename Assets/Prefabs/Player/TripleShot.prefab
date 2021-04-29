@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 2810848332641422682, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerLaser
+      value: PlayerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 5191623932301408268, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}
@@ -128,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 2810848332641422682, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerLaser
+      value: PlayerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 5191623932301408268, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}
@@ -208,7 +208,7 @@ PrefabInstance:
     - target: {fileID: 2810848332641422682, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerLaser
+      value: PlayerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 5191623932301408268, guid: 855808fd2dd15d74095010e8d66c514b,
         type: 3}

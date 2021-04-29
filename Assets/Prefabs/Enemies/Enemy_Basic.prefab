@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1380355193449013421}
   - component: {fileID: 7917986414249064511}
   - component: {fileID: 4439163779183108582}
+  - component: {fileID: 4949731074466077016}
   m_Layer: 0
   m_Name: Enemy_Basic
   m_TagString: Enemy
@@ -151,6 +152,8 @@ MonoBehaviour:
   _myGM: {fileID: 0}
   _explosionFX: {fileID: 2546614684544274047, guid: cffb38072a038ea408722fdbf1a84a2a,
     type: 3}
+  _points: 35
+  _mySM: {fileID: 0}
 --- !u!114 &1380355193449013421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,10 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spd: 2
-  _spdMult: 4
+  _currentSpd: 2
+  _spdDelta: 1
   _myRB: {fileID: 4386581655706242417}
   _gm: {fileID: 0}
   _myEC: {fileID: 2561696896151238308}
+  _myUIM: {fileID: 0}
 --- !u!114 &7917986414249064511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +204,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4949731074466077016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31378112407742979}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6be022f7f278a549ac6c6a252a7108d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayDist: 1.25
+  _moveDist: 1
+  _spd: 2.5
+  _hitLM:
+    serializedVersion: 2
+    m_Bits: 512
+  _boxSize: {x: 0.35, y: 1.25}
+  _dodging: 0

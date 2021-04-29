@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerLaser
-  - EnemyLaser
   - Enemy
   - PowerUp
   - UI
+  - PlayerBullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -19,7 +19,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - AlienObstacle
   - 
   - 
   - 

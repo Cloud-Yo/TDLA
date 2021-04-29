@@ -7,6 +7,7 @@ public class TextureScroll : MonoBehaviour
 {
     [SerializeField] private Material _mat = null;
     [SerializeField] private float _spd = 2f;
+    [SerializeField] private float _currentSpd = 2f;
     private void OnEnable()
     {
         GameManager.OnSetGlobalSpeed += SetGlobalSpeed;
@@ -19,11 +20,16 @@ public class TextureScroll : MonoBehaviour
     private void SetGlobalSpeed(float s)
     {
         _spd = s;
+        _currentSpd = _spd;
     }
 
     // Update is called once per frame
     void Update()
     {
         _mat.mainTextureOffset += Vector2.up * (Time.deltaTime * _spd); 
+        if(GameManager.Instance.GetWorldSpeed() != _currentSpd)
+        {
+            SetGlobalSpeed(GameManager.Instance.GetWorldSpeed());
+        }
     }
 }

@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public delegate void MoveDelegate(Vector2 mov);
     public static MoveDelegate MyMoveDelegate;
     private Vector2 _mov;
-    [SerializeField] private bool _accelerate = false;
+    [SerializeField] private static bool _accelerate = false;
     [SerializeField] private float _spd = 3f;
     [SerializeField] private float _accelSpd = 1.5f;
     [SerializeField] private Animator _myAN = null;
+    [SerializeField] private AudioSource _motorAS = null;
     #endregion
 
     
@@ -23,19 +24,28 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovementInput();
-        if(Accelerate() && MyMoveDelegate != TurboMovement)
-        {
-            MyMoveDelegate = TurboMovement;
-        }
-        else if(MyMoveDelegate != StandardMovement)
-        {
-            MyMoveDelegate = StandardMovement;
-        }
+        SetMoveMode();
     }
+
     private void LateUpdate()
     {
         RestrictMovement();
     }
+
+    private void SetMoveMode()
+    {
+        if (Accelerate() && MyMoveDelegate != TurboMovement)
+        {
+            MyMoveDelegate = TurboMovement;
+
+        }
+        else if (!Accelerate() && MyMoveDelegate != StandardMovement)
+        {
+            MyMoveDelegate = StandardMovement;
+
+        }
+    }
+
    
     private void MovementInput()
     {
@@ -58,11 +68,19 @@ public class PlayerMovement : MonoBehaviour
     private void StandardMovement(Vector2 move)
     {
         transform.Translate(move * _spd * Time.deltaTime);
+        if (_motorAS.pitch > 1f)
+        {
+            _motorAS.pitch -= Time.deltaTime;
+        }
     }
 
     private void TurboMovement(Vector2 move)
     {
         transform.Translate(move * (_spd * _accelSpd) * Time.deltaTime);
+        if (_motorAS.pitch < 1.75f)
+        {
+            _motorAS.pitch += Time.deltaTime;
+        }
     }
     #endregion
 

@@ -6,9 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public static Action<float> OnSetGlobalSpeed;
+    public static Action OnGameOver;
     [SerializeField] private bool _gameOver = false;
     [SerializeField] private float _gmSpeed = 0.5f;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else 
+        {
+            Destroy(this);
+        }
+    }
+
     void Start()
     {
         _gameOver = false;
@@ -27,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         _gameOver = true;
         Debug.Log("Game is over!");
+        OnGameOver?.Invoke();
     }
 
     public void ChangeGameSpeed(float s)

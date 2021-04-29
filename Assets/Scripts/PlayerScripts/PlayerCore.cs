@@ -75,19 +75,6 @@ public class PlayerCore : MonoBehaviour
        
     }
 
-    public void StartTrippleShot()
-    {
-        _myAN.ActivateSideCannons(true);
-        _myPShoot.SetTripleShot();
-        StartCoroutine(TSCooldown());
-    }
-
-    IEnumerator TSCooldown()
-    {
-        yield return new WaitForSeconds(5f);
-        _myAN.ActivateSideCannons(false);
-        _myPShoot.SetNormalShot();
-    }
 
     public void StartShield()
     {

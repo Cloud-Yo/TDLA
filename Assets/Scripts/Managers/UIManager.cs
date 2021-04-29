@@ -14,20 +14,28 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float _blinkRate = 0.5f;
     [SerializeField] private TMP_Text _enKillTxt = null;
     private int _enKill = 0;
-    private int _enMiss = 0;
     [SerializeField] private TMP_Text _enMissTxt = null;
+    private int _enMiss = 0;
+    [SerializeField] private TMP_Text _hiScoreText;
     [SerializeField] private CanvasGroup _myCG;
     [SerializeField] private static bool _uiAlpha = false;
-
+    private void Awake()
+    {
+        _myCG = GameObject.Find("TankUIBase").GetComponent<CanvasGroup>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        _myCG = GameObject.Find("TankUIBase").GetComponent<CanvasGroup>();
+
         _enKill = 0;
         _enKillTxt.SetText("000");
         _enMiss = 0;
         _enMissTxt.SetText("000");
+        if (PlayerPrefs.HasKey("HISCORE"))
+        {
+            _hiScoreText.SetText(PlayerPrefs.GetInt("HISCORE").ToString());
+        }
 
     }
 
@@ -56,6 +64,7 @@ public class UIManager : MonoBehaviour
         _gameIsOver = true;
         _restartTxt.enabled = true;
         StartCoroutine(GameOverBlink());
+        
     }
 
     IEnumerator GameOverBlink()

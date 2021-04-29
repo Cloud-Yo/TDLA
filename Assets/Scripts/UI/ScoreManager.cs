@@ -14,7 +14,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private decimal[] _cogNumbers = new decimal[] {0,0,0,0,0,0,0,0};
     [SerializeField] private float[] _cogSpeed;
     [SerializeField] private int _maxPoints;
-
+    private void OnEnable()
+    {
+        GameManager.OnGameOver += SaveHiScore;
+    }
 
     void Start()
     {
@@ -68,12 +71,14 @@ public class ScoreManager : MonoBehaviour
 
             //Debug.Log("Number " + n + ": " + _cogNumbers[n]);
         }
-
+        if (PlayerPrefs.GetInt("HISCORE") < _totalPoints)
+        {
+            PlayerPrefs.SetInt("HISCORE", _totalPoints);
+        }
     }
 
     public void SaveHiScore()
     {
-        PlayerPrefs.SetInt("hiScore", _totalPoints);
-
+        GameManager.OnGameOver -= SaveHiScore;
     }
 }

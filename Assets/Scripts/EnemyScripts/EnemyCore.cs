@@ -21,7 +21,7 @@ public class EnemyCore : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-         if(other.CompareTag("PlayerLaser"))
+         if(other.CompareTag("PlayerBullet"))
          {
             Destroy(other.gameObject);
             Instantiate(_explosionFX, transform.position, Quaternion.identity);

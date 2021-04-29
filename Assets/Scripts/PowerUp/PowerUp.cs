@@ -8,6 +8,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private SpriteRenderer _puType = null;
     [SerializeField] private Sprite[] _types;
     [SerializeField] float _spd = 2f;
+    [SerializeField] float _currentSpd = 2f;
     [SerializeField] float _rotSpd = 2f;
     [SerializeField] private int _type = 0;
     [SerializeField] private GameManager _myGM = null;
@@ -16,7 +17,7 @@ public class PowerUp : MonoBehaviour
     {
         _myGM = FindObjectOfType<GameManager>();
         _puType.sprite = _types[_type];
-        _spd = _myGM.GetWorldSpeed() * 2f;
+        SetPowerupSpeed(_myGM.GetWorldSpeed());
     }
 
     // Update is called once per frame
@@ -24,11 +25,22 @@ public class PowerUp : MonoBehaviour
     {
         _cog.transform.Rotate(new Vector3(0,0,1), 2 * _rotSpd);
         transform.Translate(Vector2.down * _spd * Time.deltaTime);
-        if(transform.position.y < -5f)
+        if (_myGM.GetWorldSpeed() != _currentSpd)
+        {
+            SetPowerupSpeed(_myGM.GetWorldSpeed());
+        }
+       
+        if (transform.position.y < -5f)
         {
             Destroy(this.gameObject);
         }
 
+    }
+
+    private void SetPowerupSpeed(float s)
+    {
+        _spd =  s* 2f;
+        _currentSpd = s;
     }
 
     public void SetType(int i)
@@ -51,7 +63,9 @@ public class PowerUp : MonoBehaviour
             switch(_type)
             {
                 case 0:
-                    collision.GetComponent<PlayerCore>()?.StartTrippleShot();
+                    collision.GetComponent<PlayerShooting>()?.SetWeaponType(1, 5);
+                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(1);
+                    collision.GetComponent<PlayerAnimations>()?.ActivateSideCannons(true);
                     break;
                 case 1:
                     collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();

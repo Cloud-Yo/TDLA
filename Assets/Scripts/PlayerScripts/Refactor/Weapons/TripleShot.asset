@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52514cb3d8c53794183e44d1161b2f18, type: 3}
+  m_Name: TripleShot
+  m_EditorClassIdentifier: 
+  _sfx: {fileID: 8300000, guid: 623b798145372d84487728a7dba6d42a, type: 3}
+  _shells: 3
+  _weaponPrefab: {fileID: 3876480045878304005, guid: 2b5ef7cc18225ed48927881fcabcbe5b,
+    type: 3}
+  _ammo: 15
+  _maxAmmo: 50
+  _ammoReload: 10
