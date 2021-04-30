@@ -11,6 +11,7 @@ public class TextureScroll : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnSetGlobalSpeed += SetGlobalSpeed;
+
     }
     private void OnDisable()
     {

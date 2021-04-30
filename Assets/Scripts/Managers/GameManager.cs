@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     public static Action<float> OnSetGlobalSpeed;
     public static Action OnGameOver;
+    public static Action OnGameStarted;
     [SerializeField] private bool _gameOver = false;
+    [SerializeField] private bool _gameStarted = false;
     [SerializeField] private float _gmSpeed = 0.5f;
 
     private void Awake()
@@ -55,5 +57,10 @@ public class GameManager : MonoBehaviour
     public float GetWorldSpeed()
     {
         return _gmSpeed;
+    }
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
