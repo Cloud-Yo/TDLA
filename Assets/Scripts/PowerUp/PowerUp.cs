@@ -60,13 +60,12 @@ public class PowerUp : MonoBehaviour
 
             switch(_type)
             {
-                case 0:
-                    collision.GetComponent<PlayerShooting>()?.SetWeaponType(1, 5);
+                case 0: //TripleShot PowerUp
                     collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(1);
                     collision.GetComponent<PlayerAnimations>()?.ActivateSideCannons(true);
                     break;
-                case 1:
-                    collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();
+                case 1://TO DO: Ammo PowerUp
+                    //collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();
                     break;
                 case 2:
                     collision.GetComponent<PlayerCore>()?.StartShield();

@@ -84,16 +84,4 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    public void StartSpeedBoost()
-    {
-        StartCoroutine(SpeedBoostRoutine());
-    }
-
-    IEnumerator SpeedBoostRoutine()
-    {
-        float s = _spd;
-        _spd *= _accelSpd;
-        yield return new WaitForSeconds(5f);
-        _spd = s;
-    }
 }
