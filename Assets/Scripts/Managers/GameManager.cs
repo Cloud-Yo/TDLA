@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static Action OnGameStarted;
     [SerializeField] private bool _gameOver = false;
     [SerializeField] private bool _gameStarted = false;
+    [SerializeField] private float _speed = 0.5f;
     [SerializeField] private float _gmSpeed = 0.5f;
 
     private void Awake()
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -62,5 +63,25 @@ public class GameManager : MonoBehaviour
     public void QuitToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void StartMoving()
+    {
+        StartCoroutine(GetMoving());
+    }
+
+    public void BeginGame()
+    {
+        _gameStarted = true;
+        OnGameStarted?.Invoke();
+    }
+
+    IEnumerator GetMoving()
+    {
+        while (_gmSpeed < _speed)
+        {
+            _gmSpeed += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 60281fb78f0e8e14aad79324c217383f,
+    type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 83d7e19be3e74bd47b057d19c4ffb1a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 624.8086}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_77A2EEAE: 53
+    - Vector1_B8808A17: 96
+    - _Alpha: 0.95
+    - _ChurnSpeed: 3
+    - _EnableExternalAlpha: 0
+    - _MainTex_XY: 0.05
+    - _SineSPeed: 0.05
+    - _SineSpeed: 0.25
+    m_Colors:
+    - _Color: {r: 0.37379852, g: 0.4528302, b: 0.39555252, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _FlowSpeed: {r: 0.5, g: 0, b: 0, a: 0}
+    - _QueueOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondaryColor: {r: 0.124288015, g: 0.1792453, b: 0.14833182, a: 1}
+    - mainTextureOffset: {r: 0, g: 13.11, b: 0, a: 0}

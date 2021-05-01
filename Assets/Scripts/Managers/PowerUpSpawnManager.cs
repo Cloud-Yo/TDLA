@@ -7,21 +7,28 @@ public class PowerUpSpawnManager : MonoBehaviour
     [SerializeField] private GameObject _powerUp = null;
     [SerializeField] private WaitForSeconds _powerUpDelay = new WaitForSeconds(7.5f);
     [SerializeField] private Transform _container = null;
-    
+    [SerializeField] private bool _gameOver = false;
+
+
+    private void OnEnable()
+    {
+        GameManager.OnGameOver += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameOver -= GameOver;
+    }
+
+
     void Start()
     {
         StartCoroutine(SpawnPowerUpRoutine());    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnPowerUpRoutine()
     {
-        while (true)
+        while (!_gameOver)
         {
             yield return _powerUpDelay;
             Vector2 pos = new Vector2(Random.Range(-6f, 6f), 5f);
@@ -30,5 +37,11 @@ public class PowerUpSpawnManager : MonoBehaviour
             p.transform.SetParent(_container);
         }
         
+    }
+
+    private void GameOver()
+    {
+        GameManager.OnGameOver -= GameOver;
+        _gameOver = true;
     }
 }

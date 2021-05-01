@@ -7,7 +7,7 @@ public class PlayerCore : MonoBehaviour
 {
     [Header("Player Components")]
     [SerializeField] private PlayerMovement _myPMove = null;
-    [SerializeField] private PlayerShooting _myPShoot = null;
+    [SerializeField] private PlayerModularShooting _myPShoot = null;
     [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private Collider _myColl = null;
     [SerializeField] private PlayerAnimations _myAN = null;
@@ -26,11 +26,12 @@ public class PlayerCore : MonoBehaviour
 
     void Start()
     {
+
         foreach (GameObject fx in _damageFX)
         {
             fx.SetActive(false);
         }
-        transform.position = new Vector3(0,0,transform.position.z);    
+        //transform.position = new Vector3(0,0,transform.position.z);    
     }
 
     public void TakeDamage()

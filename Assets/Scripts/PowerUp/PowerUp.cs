@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    [SerializeField] private GameObject _cog = null;
     [SerializeField] private SpriteRenderer _puType = null;
     [SerializeField] private Sprite[] _types;
     [SerializeField] float _spd = 2f;
     [SerializeField] float _currentSpd = 2f;
-    [SerializeField] float _rotSpd = 2f;
     [SerializeField] private int _type = 0;
     [SerializeField] private GameManager _myGM = null;
 
@@ -23,7 +21,7 @@ public class PowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _cog.transform.Rotate(new Vector3(0,0,1), 2 * _rotSpd);
+
         transform.Translate(Vector2.down * _spd * Time.deltaTime);
         if (_myGM.GetWorldSpeed() != _currentSpd)
         {
