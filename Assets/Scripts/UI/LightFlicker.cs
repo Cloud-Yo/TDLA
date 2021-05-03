@@ -11,11 +11,17 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] private WaitForSeconds _fDelay = new WaitForSeconds(0.1f);
     [SerializeField] private bool _gameOver = false;
     [SerializeField] private Vector2 _intensityMinMax;
-    void Start()
+    private void OnEnable()
     {
         _light = GetComponent<Light2D>();
         StartCoroutine(FlickerLights());
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
 
 
     IEnumerator FlickerLights()

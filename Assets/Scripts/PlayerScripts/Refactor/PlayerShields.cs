@@ -8,8 +8,8 @@ public class PlayerShields : MonoBehaviour
     [SerializeField] private int _shieldHP;
     public int ShieldHP { get { return _shieldHP; } private set { _shieldHP = value; } }
 
-    [SerializeField] private Light2D[] _shieldLights;
-    public Light2D[] ShieldLights { get { return _shieldLights; } private set { _shieldLights = value; } }
+    [SerializeField] private GameObject[] _shieldLights;
+    public GameObject[] ShieldLights { get { return _shieldLights; } private set { _shieldLights = value; } }
 
     [SerializeField] private int _maxShields;
     [SerializeField] private PlayerAnimations _myPAN = null;
@@ -23,7 +23,7 @@ public class PlayerShields : MonoBehaviour
         _shieldsActive = false;
         for (int i = 0; i < _shieldLights.Length; i++)
         {
-            _shieldLights[i].enabled = false;
+            _shieldLights[i].SetActive(false);
         }
     }
 
@@ -46,7 +46,7 @@ public class PlayerShields : MonoBehaviour
     {
         for (int i = 0; i < _shieldLights.Length; i++)
         {
-            _shieldLights[i].enabled = true;
+            _shieldLights[i].SetActive(true);
             yield return new WaitForSeconds(0.15f);
         }
     }
@@ -60,12 +60,12 @@ public class PlayerShields : MonoBehaviour
     {
         if (_shieldHP > 1)
         {
-            _shieldLights[_shieldHP - 1].enabled = false;
+            _shieldLights[_shieldHP - 1].SetActive(false);
             _shieldHP--;
         }
         else if(_shieldHP == 1)
         {
-            _shieldLights[_shieldHP - 1].enabled = false;
+            _shieldLights[_shieldHP - 1].SetActive(false);
             _shieldHP--;
             _shieldsActive = false;
             _myPAN.ActivateShield(_shieldsActive);

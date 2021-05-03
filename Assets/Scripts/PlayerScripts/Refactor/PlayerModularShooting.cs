@@ -17,6 +17,7 @@ public class PlayerModularShooting : MonoBehaviour
     [SerializeField] private float _fireRate = 0.5f;
     private WaitForSeconds _shellDelay = new WaitForSeconds(0.15f);
     [SerializeField] private UnityEvent OnShellEject;
+    private AmmoCounter _myAC = null;
 
 
 
@@ -26,6 +27,7 @@ public class PlayerModularShooting : MonoBehaviour
         _myAN = GetComponent<PlayerAnimations>();
         _currentAmmo = _weapons[_weaponIndex].Ammo;
         _myAS = GetComponent<AudioSource>();
+        _myAC = GetComponent<AmmoCounter>();
 
     }
 
@@ -35,6 +37,7 @@ public class PlayerModularShooting : MonoBehaviour
         {
             _shotReady = Time.time + _fireRate;
             _currentAmmo--;
+            _myAC.UpdateAmmoCounter(_currentAmmo, _weapons[_weaponIndex].MaxAmmo);
             GameObject bullet = Instantiate(_weapons[_weaponIndex].WeaponPrefab, transform.position, Quaternion.identity);
             bullet.transform.SetParent(_bulletContainer);
             bullet.transform.tag = "PlayerBullet";
@@ -79,6 +82,7 @@ public class PlayerModularShooting : MonoBehaviour
                 {
                     _currentAmmo = _weapons[i].MaxAmmo;
                 }
+                
             }
         }
         else
@@ -90,7 +94,9 @@ public class PlayerModularShooting : MonoBehaviour
             _weaponIndex = i;
             _currentAmmo = _weapons[i].AmmoReload;
         }
-
+        _myAC.UpdateAmmoCounter(_currentAmmo, _weapons[_weaponIndex].MaxAmmo);
+        _myAC.UpdateMaxAmmo(_weapons[_weaponIndex].MaxAmmo);
+        _myAC.ChangeAmmoColor(_weaponIndex);
     }
 
     IEnumerator EjectShells(int shells)

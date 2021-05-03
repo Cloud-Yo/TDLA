@@ -67,7 +67,7 @@ public class PowerUp : MonoBehaviour
                 case 1://TO DO: Ammo PowerUp
                     //collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();
                     break;
-                case 2:
+                case 2://shields
                     collision.GetComponent<PlayerShields>()?.ActivateShields();
                     break;
             }
