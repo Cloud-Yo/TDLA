@@ -68,7 +68,7 @@ public class PowerUp : MonoBehaviour
                     //collision.GetComponent<PlayerMovement>()?.StartSpeedBoost();
                     break;
                 case 2:
-                    collision.GetComponent<PlayerCore>()?.StartShield();
+                    collision.GetComponent<PlayerShields>()?.ActivateShields();
                     break;
             }
             

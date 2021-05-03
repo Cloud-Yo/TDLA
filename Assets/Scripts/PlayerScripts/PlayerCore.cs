@@ -12,6 +12,7 @@ public class PlayerCore : MonoBehaviour
     [SerializeField] private Collider _myColl = null;
     [SerializeField] private PlayerAnimations _myAN = null;
     [SerializeField] private GameObject[] _damageFX;
+    [SerializeField] private PlayerShields _myPSH = null;
 
     [Header("Player Variables")]
     [SerializeField] private int _lives = 3;
@@ -37,10 +38,9 @@ public class PlayerCore : MonoBehaviour
     public void TakeDamage()
     {
         
-        if(_shield)
+        if(_myPSH.AreShieldsActive())
         {
-            _shield = false;
-            _myAN.ActivateShield(false);
+            _myPSH.DamageShield(1);
             return;
         }
         else
@@ -76,13 +76,6 @@ public class PlayerCore : MonoBehaviour
        
     }
 
-
-    public void StartShield()
-    {
-        _myAN.ActivateShield(true);
-        _shield = true;
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

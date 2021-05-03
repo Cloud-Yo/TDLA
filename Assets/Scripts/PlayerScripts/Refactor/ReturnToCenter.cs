@@ -6,7 +6,7 @@ public class ReturnToCenter : MonoBehaviour
 {
     public delegate void OnMoveComplete();
     protected OnMoveComplete _onMoveComplete;
-    [SerializeField] private float _spd = 2.5f;
+    [SerializeField] private float _spd = 0.5f;
    public void TravelToCenter(OnMoveComplete callback)
     {
         StartCoroutine(ReturnToMiddle(callback));

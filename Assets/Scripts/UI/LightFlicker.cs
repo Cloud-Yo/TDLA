@@ -10,24 +10,20 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] private float _rand;
     [SerializeField] private WaitForSeconds _fDelay = new WaitForSeconds(0.1f);
     [SerializeField] private bool _gameOver = false;
+    [SerializeField] private Vector2 _intensityMinMax;
     void Start()
     {
         _light = GetComponent<Light2D>();
         StartCoroutine(FlickerLights());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     IEnumerator FlickerLights()
     {
        while(_light.enabled)
         {
             yield return _fDelay;
-            _light.intensity = Random.Range(5f, 7f);
+            _light.intensity = Random.Range(_intensityMinMax.x, _intensityMinMax.y);
             
         }
 

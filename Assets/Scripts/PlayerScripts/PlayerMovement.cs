@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool Accelerate()
     {
-        return Input.GetKey(KeyCode.LeftShift) ? true : false;
+        return Input.GetKey(KeyCode.LeftShift);
     }
 
     #region MovementTypes
