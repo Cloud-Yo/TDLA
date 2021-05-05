@@ -7,6 +7,7 @@ public class AmmoCounter : MonoBehaviour
 {
     [SerializeField] private Sprite[] _digiNumsArray;
     [SerializeField] private Sprite[] _digiMaxNumsArray;
+    [SerializeField] private Image[] _digiNums;
     [SerializeField] private Image _digiNums01;
     [SerializeField] private Image _digiNums10;
     [SerializeField] private Image _digiMaxNums01;
@@ -20,8 +21,6 @@ public class AmmoCounter : MonoBehaviour
     {
         SetColor(_mainCol);
         UpdateAmmoCounter(15, 99);
-        UpdateMaxAmmo(99);
-
     }
 
     public void UpdateAmmoCounter(int ammo, int max)
@@ -36,17 +35,12 @@ public class AmmoCounter : MonoBehaviour
         _digiNums10.sprite = _digiNumsArray[tens];
         _digiNums01.sprite = _digiNumsArray[ones];
 
+        tens = max / 10;
+        ones = max % 10;
+        _digiMaxNums10.sprite = _digiNumsArray[tens];
+        _digiMaxNums01.sprite = _digiNumsArray[ones];
     }
 
-    public void UpdateMaxAmmo(int max)
-    {
-
-        int tens = max / 10;
-        int ones = max % 10;
-        _digiMaxNums10.sprite = _digiMaxNumsArray[tens];
-        _digiMaxNums01.sprite = _digiMaxNumsArray[ones];
-
-    }
 
     public void ChangeAmmoColor(int type)
     {

@@ -15,8 +15,9 @@ public class PlayerCore : MonoBehaviour
     [SerializeField] private PlayerShields _myPSH = null;
 
     [Header("Player Variables")]
-    [SerializeField] private int _lives = 3;
-    [SerializeField] private bool _shield = false;
+    private int _lives = 3;
+    [SerializeField] private int _maxLives = 3;
+    private bool _shield = false;
 
     [Header("Manager Components")]
     [SerializeField] private EnemySpawnManager _mySM = null;
@@ -32,7 +33,7 @@ public class PlayerCore : MonoBehaviour
         {
             fx.SetActive(false);
         }
-        //transform.position = new Vector3(0,0,transform.position.z);    
+ 
     }
 
     public void TakeDamage()
@@ -46,23 +47,8 @@ public class PlayerCore : MonoBehaviour
         else
         {
             _lives--;
+            DisplayDamage();
 
-            switch (_lives)
-            {
-                case 2:
-                    _damageFX[0].SetActive(true);
-                    
-                    break;
-                case 1:
-                    _damageFX[1].SetActive(true);
-                    
-                    break;
-                case 0:
-                    
-                    break;
-                default:
-                    break;
-            }
             _myHUIM.UpdateLifeLights(_lives);
             if (_lives < 1)
             {
@@ -74,6 +60,49 @@ public class PlayerCore : MonoBehaviour
         }
   
        
+    }
+
+    void DisplayDamage()
+    {
+        switch (_lives)
+        {
+            case 2:
+                if (!_damageFX[0].activeInHierarchy)
+                {
+                    _damageFX[0].SetActive(true);
+                }
+                else 
+                {
+                    _damageFX[1].SetActive(false);
+                }
+
+                break;
+            case 1:
+                if (!_damageFX[1].activeInHierarchy)
+                {
+                    _damageFX[1].SetActive(true);
+                }
+                break;
+            case 3:
+                if (_damageFX[0].activeInHierarchy)
+                {
+                    _damageFX[0].SetActive(false);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void RestoreHealth()
+    {
+        _lives++;
+        if (_lives > _maxLives)
+        {
+            _lives = _maxLives;
+        }
+        DisplayDamage();
+        _myHUIM.RestoreLifeLights(_lives-1);
     }
 
 

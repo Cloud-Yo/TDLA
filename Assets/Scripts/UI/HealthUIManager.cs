@@ -17,4 +17,16 @@ public class HealthUIManager : MonoBehaviour
     {
         _lifeLights[h].SetActive(false);
     }
+
+    public void RestoreLifeLights(int h)
+    {
+        if (!_lifeLights[h].activeInHierarchy)
+        {
+            _lifeLights[h].SetActive(true);
+        }
+        else
+        {
+            return;
+        }
+    }
 }

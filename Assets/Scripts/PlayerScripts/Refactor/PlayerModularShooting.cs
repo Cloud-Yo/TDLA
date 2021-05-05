@@ -8,37 +8,39 @@ public class PlayerModularShooting : MonoBehaviour
 
     private PlayerAnimations _myAN = null;
     private AudioSource _myAS = null;
+    //Weapons: 0 = Main, 1 = TripleShot
     [SerializeField] private WeaponSO[] _weapons;
     [SerializeField] private int _weaponIndex = 0;
-    [SerializeField] private int _currentAmmo;
     [SerializeField] private float _sfxVolume = 0.8f;
     [SerializeField] private Transform _bulletContainer = null;
     [SerializeField] private float _shotReady = -1f;
     [SerializeField] private float _fireRate = 0.5f;
     private WaitForSeconds _shellDelay = new WaitForSeconds(0.15f);
     [SerializeField] private UnityEvent OnShellEject;
-    private AmmoCounter _myAC = null;
-
-
-
+    [SerializeField] private AmmoCounter _myAC = null;
 
     private void Start()
     {
         _myAN = GetComponent<PlayerAnimations>();
-        _currentAmmo = _weapons[_weaponIndex].Ammo;
+        foreach (var w in _weapons)
+        {
+            w.ResetAmmo();
+        }
+        _weapons[_weaponIndex].UpdateAmmo(_weapons[_weaponIndex].AmmoReload);
+        _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
         _myAS = GetComponent<AudioSource>();
-        _myAC = GetComponent<AmmoCounter>();
+       // _myAC = GetComponent<AmmoCounter>();
 
     }
 
     public void FireWeapon()
     {
-        if (_currentAmmo > 0 && CanFireCheck())
+        if (_weapons[_weaponIndex].Ammo > 0 && CanFireCheck())
         {
+            _weapons[_weaponIndex].UpdateAmmo(-1);
+            _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
             _shotReady = Time.time + _fireRate;
-            _currentAmmo--;
-            _myAC.UpdateAmmoCounter(_currentAmmo, _weapons[_weaponIndex].MaxAmmo);
-            GameObject bullet = Instantiate(_weapons[_weaponIndex].WeaponPrefab, transform.position, Quaternion.identity);
+             GameObject bullet = Instantiate(_weapons[_weaponIndex].WeaponPrefab, transform.position, Quaternion.identity);
             bullet.transform.SetParent(_bulletContainer);
             bullet.transform.tag = "PlayerBullet";
             _myAS.PlayOneShot(_weapons[_weaponIndex].SFX, _sfxVolume);
@@ -48,13 +50,19 @@ public class PlayerModularShooting : MonoBehaviour
                 StartCoroutine(EjectShells(_weapons[_weaponIndex].Shells));
             }
         }
-        else if(_currentAmmo <= 0 && _weaponIndex != 0 && CanFireCheck())
+        else if(_weapons[_weaponIndex].Ammo <= 0 && _weaponIndex != 0 && CanFireCheck())
         {
             if(_weapons[_weaponIndex].WSOT == WeaponSO.WeaponSOType.tripleShot)
             {
                 _myAN.ActivateSideCannons(false);
             }
-            SwitchWeapon(0);
+            _weaponIndex = 0;
+            if(_weapons[_weaponIndex].Ammo == 0)
+            {
+                _weapons[_weaponIndex].UpdateAmmo(5);
+            }
+            _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
+            _myAC.ChangeAmmoColor(_weaponIndex);
             FireWeapon();
         }
 
@@ -70,19 +78,14 @@ public class PlayerModularShooting : MonoBehaviour
         return false;
     }
 
-
     public void SwitchWeapon(int i)
     {
         if (_weaponIndex == i)
         {
-            if (_currentAmmo < _weapons[i].MaxAmmo)
+            if (_weapons[i].Ammo < _weapons[i].MaxAmmo)
             {
-                _currentAmmo += _weapons[i].AmmoReload;
-                if (_currentAmmo > _weapons[i].MaxAmmo)
-                {
-                    _currentAmmo = _weapons[i].MaxAmmo;
-                }
-                
+                _weapons[i].UpdateAmmo(_weapons[i].AmmoReload);
+              
             }
         }
         else
@@ -92,13 +95,21 @@ public class PlayerModularShooting : MonoBehaviour
                 _myAN.ActivateSideCannons(false);
             }
             _weaponIndex = i;
-            _currentAmmo = _weapons[i].AmmoReload;
+            _weapons[_weaponIndex].UpdateAmmo(_weapons[_weaponIndex].AmmoReload);
+            
         }
-        _myAC.UpdateAmmoCounter(_currentAmmo, _weapons[_weaponIndex].MaxAmmo);
-        _myAC.UpdateMaxAmmo(_weapons[_weaponIndex].MaxAmmo);
+        _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
         _myAC.ChangeAmmoColor(_weaponIndex);
     }
 
+    public void ReloadMainAmmo()
+    {
+        _weapons[0].UpdateAmmo(_weapons[0].AmmoReload);
+        if (_weaponIndex == 0)
+        {
+            _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
+        }
+    }
     IEnumerator EjectShells(int shells)
     {
         for (int i = 0; i < shells; i++)

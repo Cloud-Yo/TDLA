@@ -64,9 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _puType: {fileID: 4331797657712716693}
   _types:
+  - {fileID: 3725257062488507135, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: -388700407768159352, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
-  - {fileID: 3096419963679369871, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: 2596538546632572305, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
+  - {fileID: 1338503159802547192, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   _spd: 2
   _currentSpd: 2
   _type: 0

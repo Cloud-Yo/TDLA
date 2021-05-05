@@ -35,8 +35,23 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private int _ammoReload;
     public int AmmoReload { get => _ammoReload; set => value = _ammoReload; }
 
-    public void Shoot()
+
+    //Ammo can be added or removed
+    public void UpdateAmmo(int ammo)
     {
-       
+        _ammo += ammo;
+        if (_ammo < 0)
+        {
+            _ammo = 0;
+        }
+        else if (_ammo > MaxAmmo)
+        {
+            _ammo = MaxAmmo;
+        }
+    }
+
+    public void ResetAmmo()
+    {
+        _ammo = 0;
     }
 }
