@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52514cb3d8c53794183e44d1161b2f18, type: 3}
+  m_Name: GrapeShot
+  m_EditorClassIdentifier: 
+  _wSOT: 2
+  _sfx: {fileID: 8300000, guid: 3a75c2634b9f0b94fbafb5274b4be119, type: 3}
+  _shells: 5
+  _weaponPrefab: {fileID: 6289826758052337039, guid: c6e677e72d780b74fbc9892832c962ee,
+    type: 3}
+  _ammo: 0
+  _maxAmmo: 25
+  _ammoReload: 10

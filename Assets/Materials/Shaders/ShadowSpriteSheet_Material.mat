@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PowerUpCog_Material
+  m_Name: ShadowSpriteSheet_Material
   m_Shader: {fileID: -6465566751694194690, guid: e03efe4a770329b4bb817bba98f00be2,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -54,14 +54,16 @@ Material:
     - Vector1_820A770: 0
     - Vector1_851AE590: 0.66
     - _EnableExternalAlpha: 0
-    - _Rotates: 1
-    - _Rotation: 2
+    - _Rotates: 0
+    - _Rotation: 0
     m_Colors:
     - Color_567B96DD: {r: 0.15849248, g: 0.070621215, b: 0.21698111, a: 1}
-    - Vector2_F6A86432: {r: 0, g: 0.075, b: 0, a: 0}
+    - Vector2_F6A86432: {r: 0, g: 0.015, b: 0, a: 0}
     - Vector3_7CBDDF71: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_7DD30B56: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _PosOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _PosOffset: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RotCenter: {r: 0, g: 0, b: 0, a: 0}
+    - _RowsAndColumns: {r: 1, g: 1, b: 0, a: 0}

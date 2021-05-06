@@ -37,8 +37,8 @@ public class AmmoCounter : MonoBehaviour
 
         tens = max / 10;
         ones = max % 10;
-        _digiMaxNums10.sprite = _digiNumsArray[tens];
-        _digiMaxNums01.sprite = _digiNumsArray[ones];
+        _digiMaxNums10.sprite = _digiMaxNumsArray[tens];
+        _digiMaxNums01.sprite = _digiMaxNumsArray[ones];
     }
 
 

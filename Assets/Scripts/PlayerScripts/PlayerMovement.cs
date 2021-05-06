@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
     #region Movement Variables
     public delegate void MoveDelegate(Vector2 mov);
     public static MoveDelegate MyMoveDelegate;
+    public static Action<float> OnAcceleration;
+    private bool _canAccelerate = true;
+    [SerializeField] private float _maxAccelerationTime = 3f;
+    [SerializeField] private float _accelerationTimeLeft;
     private Vector2 _mov;
     [SerializeField] private static bool _accelerate = false;
     [SerializeField] private float _spd = 3f;
@@ -18,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
+        _accelerationTimeLeft = _maxAccelerationTime;
        MyMoveDelegate = StandardMovement;
     }
 
@@ -25,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovementInput();
         SetMoveMode();
+        HandleAccelerationTime();
     }
 
     private void LateUpdate()
@@ -61,7 +68,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool Accelerate()
     {
-        return Input.GetKey(KeyCode.LeftShift);
+        if (!_canAccelerate)
+        {
+            return false;
+        }
+       return Input.GetKey(KeyCode.LeftShift);
     }
 
     #region MovementTypes
@@ -71,11 +82,13 @@ public class PlayerMovement : MonoBehaviour
         if (_motorAS.pitch > 1f)
         {
             _motorAS.pitch -= Time.deltaTime;
+            
         }
     }
 
     private void TurboMovement(Vector2 move)
     {
+        
         transform.Translate(move * (_spd * _accelSpd) * Time.deltaTime);
         if (_motorAS.pitch < 1.75f)
         {
@@ -83,5 +96,42 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     #endregion
+
+    private void HandleAccelerationTime()
+    {
+        if (Accelerate())
+        {
+            if(_accelerationTimeLeft > 0)
+            {
+                _accelerationTimeLeft -= Time.deltaTime;
+                float fill = _accelerationTimeLeft / _maxAccelerationTime;
+                OnAcceleration?.Invoke(fill);
+            }
+            else
+            {
+                OnAcceleration?.Invoke(0);
+                _canAccelerate = false;
+                _accelerationTimeLeft = 0;
+            }
+
+
+        }
+        else if(!Accelerate())
+        {
+            if (_accelerationTimeLeft < _maxAccelerationTime)
+            {
+                _accelerationTimeLeft += Time.deltaTime;
+                float fill = _accelerationTimeLeft / _maxAccelerationTime;
+                OnAcceleration?.Invoke(fill);
+            }
+            else if (!_canAccelerate)
+            {
+
+                _accelerationTimeLeft = _maxAccelerationTime;
+                _canAccelerate = true;
+            }
+
+        }
+    }
 
 }

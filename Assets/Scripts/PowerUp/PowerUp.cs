@@ -57,21 +57,39 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
+            //FireEvents: 0 = Powerup, 1 = PowerDown, 2 = Health, 3 = Reload
             switch(_type)
             {
+
                 case 0: //Ammo
                     collision.GetComponent<PlayerModularShooting>()?.ReloadMainAmmo();
                     break;
                 case 1://TripleShot PowerUp
-                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(1);
+                  
+                    if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
+                    {
+                        collision.GetComponent<ActionHandler>()?.FireEvent(0);
+                    }
+                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(_type);
                     collision.GetComponent<PlayerAnimations>()?.ActivateSideCannons(true);
+
                     break;
-                case 2://shields
+                case 2://GrapeShot PowerUp
+                  
+                    if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
+                    {
+                        collision.GetComponent<ActionHandler>()?.FireEvent(0);
+                    }
+                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(_type);
+
+                    break;
+                case 3://shields
                     collision.GetComponent<PlayerShields>()?.ActivateShields();
+                    collision.GetComponent<ActionHandler>()?.FireEvent(0);
                     break;
-                case 3://Health
+                case 4://Health
                     collision.GetComponent<PlayerCore>()?.RestoreHealth();
+                    collision.GetComponent<ActionHandler>()?.FireEvent(2);
                     break;
             }
             
