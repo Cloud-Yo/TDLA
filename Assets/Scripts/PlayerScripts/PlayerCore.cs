@@ -6,13 +6,12 @@ using UnityEngine;
 public class PlayerCore : MonoBehaviour
 {
     [Header("Player Components")]
-    [SerializeField] private PlayerMovement _myPMove = null;
-    [SerializeField] private PlayerModularShooting _myPShoot = null;
-    [SerializeField] private Rigidbody2D _myRB = null;
-    [SerializeField] private Collider _myColl = null;
-    [SerializeField] private PlayerAnimations _myAN = null;
+    private PlayerMovement _myPMove = null;
+    private PlayerModularShooting _myPShoot = null;
+    private PlayerAnimations _myAN = null;
+    private PlayerShields _myPSH = null;
+    private ActionHandler _myAH = null; 
     [SerializeField] private GameObject[] _damageFX;
-    [SerializeField] private PlayerShields _myPSH = null;
 
     [Header("Player Variables")]
     private int _lives = 3;
@@ -24,11 +23,18 @@ public class PlayerCore : MonoBehaviour
     [SerializeField] private UIManager _myUIM = null;
     [SerializeField] private GameManager _myGM = null;
     [SerializeField] private HealthUIManager _myHUIM = null;
-    
 
+    private void Awake()
+    {
+        _myPMove = GetComponent<PlayerMovement>();
+        _myPShoot = GetComponent<PlayerModularShooting>();
+        _myAN = GetComponent<PlayerAnimations>();
+        _myAH = GetComponent<ActionHandler>();
+        _myPSH = GetComponent<PlayerShields>();
+    }
     void Start()
     {
-
+       
         foreach (GameObject fx in _damageFX)
         {
             fx.SetActive(false);
@@ -38,7 +44,7 @@ public class PlayerCore : MonoBehaviour
 
     public void TakeDamage()
     {
-        
+        _myAH.FireEvent(4);
         if(_myPSH.AreShieldsActive())
         {
             _myPSH.DamageShield(1);

@@ -75,6 +75,7 @@ public class PlayerModularShooting : MonoBehaviour
             {
                 _myAN.ActivateSideCannons(false);
             }
+            _myAH?.FireEvent(1);
             _weaponIndex = 0;
             if(_weapons[_weaponIndex].Ammo == 0)
             {
@@ -117,6 +118,7 @@ public class PlayerModularShooting : MonoBehaviour
             }
             _weaponIndex = i;
             _weapons[_weaponIndex].UpdateAmmo(_weapons[_weaponIndex].AmmoReload);
+            
             
         }
         _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);

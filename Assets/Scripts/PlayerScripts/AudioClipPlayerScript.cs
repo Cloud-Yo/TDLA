@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MinAttribute = UnityEngine.MinAttribute;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioClipPlayerScript : MonoBehaviour
@@ -11,6 +12,7 @@ public class AudioClipPlayerScript : MonoBehaviour
     void Start()
     {
         MyAS = GetComponent<AudioSource>();
+
     }
 
     public void PlayOneShotClip(AudioClip c)

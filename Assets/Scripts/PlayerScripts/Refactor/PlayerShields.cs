@@ -15,10 +15,12 @@ public class PlayerShields : MonoBehaviour
     [SerializeField] private PlayerAnimations _myPAN = null;
     [SerializeField] private bool _shieldsActive = false;
     public bool ShieldsActive { get { return _shieldsActive; } private set { _shieldsActive = value; } }
+    private ActionHandler _myAH = null;
 
 
     void Start()
     {
+        _myAH = GetComponent<ActionHandler>();
         _shieldHP = _maxShields;
         _shieldsActive = false;
         for (int i = 0; i < _shieldLights.Length; i++)
@@ -69,6 +71,8 @@ public class PlayerShields : MonoBehaviour
             _shieldHP--;
             _shieldsActive = false;
             _myPAN.ActivateShield(_shieldsActive);
+            _myAH.FireEvent(1);
+
         }
     }
 
