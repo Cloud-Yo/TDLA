@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyCore : MonoBehaviour
 {
-    [SerializeField] private UIManager _myUIM = null;
-    [SerializeField] private GameManager _myGM = null;
+    private UIManager _myUIM = null;
+    private GameManager _myGM = null;
     [SerializeField] private GameObject _explosionFX = null;
     [SerializeField] private int _points = 35;
-    [SerializeField] private ScoreManager _mySM = null;
+    private ScoreManager _mySM = null;
 
     private void OnEnable()
     {
@@ -32,10 +32,9 @@ public class EnemyCore : MonoBehaviour
          else if(other.CompareTag("Player"))
          {
              
-             other.GetComponent<Player>()?.TakeDamage();
-             other.GetComponent<PlayerCore>()?.TakeDamage();
-            GameObject x = Instantiate(_explosionFX, transform.position, Quaternion.identity);
-            x.transform.SetParent(this.transform.parent);
+            other.GetComponent<PlayerCore>()?.TakeDamage();
+            GameObject splat = Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            //splat.transform.SetParent(this.transform.parent);
             _mySM.UpdateScore(_points);
             _myUIM.SetInfoText(true);
             Destroy(this.gameObject);

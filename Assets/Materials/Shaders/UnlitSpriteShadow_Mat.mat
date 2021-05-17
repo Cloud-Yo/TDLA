@@ -50,6 +50,7 @@ Material:
     - Vector1_820A770: 0
     - Vector1_851AE590: 0.66
     - _EnableExternalAlpha: 0
+    - _Rotates: 0
     - _Rotation: 0
     m_Colors:
     - Color_567B96DD: {r: 0.15849248, g: 0.070621215, b: 0.21698111, a: 1}
@@ -58,4 +59,5 @@ Material:
     - Vector3_7DD30B56: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _PosOffset: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

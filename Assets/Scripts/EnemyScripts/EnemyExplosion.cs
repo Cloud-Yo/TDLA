@@ -6,14 +6,15 @@ public class EnemyExplosion : MonoBehaviour
 {
     [SerializeField] private float _spd;
     [SerializeField] private float _currentSpd;
-    [SerializeField] private SpriteRenderer _mySR = null;
-    [SerializeField] private ParticleSystem _myPS = null;
+    private SpriteRenderer _mySR = null;
+    private ParticleSystem _myPS = null;
     [SerializeField] private GameManager _myGM = null;
 
 
     void Start()
     {
-        Debug.Log("Enemy Boom!");
+        _mySR = GetComponent<SpriteRenderer>();
+        _myPS = GetComponent<ParticleSystem>();
         _myGM = FindObjectOfType<GameManager>();
         _mySR.flipX = FlipSprite();
         _spd = _myGM.GetWorldSpeed() * 2f;

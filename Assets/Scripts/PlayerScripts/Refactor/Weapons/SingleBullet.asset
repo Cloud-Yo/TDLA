@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52514cb3d8c53794183e44d1161b2f18, type: 3}
+  m_Name: SingleBullet
+  m_EditorClassIdentifier: 
+  _sfx: {fileID: 0}
+  _shells: 0
+  _weaponPrefab: {fileID: 0}
+  _ammo: 0
+  _maxAmmo: 0
+  _ammoReload: 0
+  _myAN: {fileID: 0}

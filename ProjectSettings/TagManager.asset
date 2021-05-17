@@ -4,12 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Water
+  - UI
   - Enemy
   - PowerUp
-  - UI
   - PlayerBullet
-  - EnemyBullet
-  - Water
   layers:
   - Default
   - TransparentFX
@@ -20,7 +19,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - AlienObstacle
+  - 
   - 
   - 
   - 

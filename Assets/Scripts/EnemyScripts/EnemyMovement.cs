@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private EnemyCore _myEC = null;
     [SerializeField] private UIManager _myUIM = null;
 
+    private bool lowPos => transform.position.y < -7.5f;
+
     private void OnEnable()
     {
         _myUIM = FindObjectOfType<UIManager>();
@@ -54,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(transform.position.y < -7.5f)
+        if(lowPos)
         {
             _myUIM.SetInfoText(false);
             ResetPosition();
