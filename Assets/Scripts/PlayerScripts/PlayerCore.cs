@@ -58,7 +58,7 @@ public class PlayerCore : MonoBehaviour
             _myHUIM.UpdateLifeLights(_lives);
             if (_lives < 1)
             {
-                _mySM.GameOver();
+                
                 _myUIM.GameOver();
                 _myGM.GameOver();
                 Destroy(this.gameObject);

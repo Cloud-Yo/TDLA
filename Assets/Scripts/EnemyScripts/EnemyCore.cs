@@ -27,6 +27,7 @@ public class EnemyCore : MonoBehaviour
             Instantiate(_explosionFX, transform.position, Quaternion.identity);
             _mySM.UpdateScore(_points);
             _myUIM.SetInfoText(true);
+            SpawnWaveBehavior.EnemyCount -= 1;
             Destroy(this.gameObject);
          }
          else if(other.CompareTag("Player"))
@@ -37,6 +38,7 @@ public class EnemyCore : MonoBehaviour
             //splat.transform.SetParent(this.transform.parent);
             _mySM.UpdateScore(_points);
             _myUIM.SetInfoText(true);
+            SpawnWaveBehavior.EnemyCount -= 1;
             Destroy(this.gameObject);
 
          }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PowerUp
   - PlayerBullet
+  - StartGame
   layers:
   - Default
   - TransparentFX

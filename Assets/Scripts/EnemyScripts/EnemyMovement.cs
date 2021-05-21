@@ -14,7 +14,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private EnemyCore _myEC = null;
     [SerializeField] private UIManager _myUIM = null;
 
+   
     private bool lowPos => transform.position.y < -7.5f;
+    
 
     private void OnEnable()
     {

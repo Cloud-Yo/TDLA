@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _gameStarted = false;
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private float _gmSpeed = 0.5f;
+
 
     private void Awake()
     {

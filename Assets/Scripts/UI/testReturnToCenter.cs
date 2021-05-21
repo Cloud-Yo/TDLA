@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class testReturnToCenter : MonoBehaviour
 {
     private Animator _myAN = null;
-    [SerializeField] private ReturnToCenter _myRTC = null;
+    [SerializeField] private MoveToLocation _myRTC = null;
 
     void Start()
     {

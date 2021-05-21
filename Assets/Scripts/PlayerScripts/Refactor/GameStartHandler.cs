@@ -6,6 +6,9 @@ public class GameStartHandler : MonoBehaviour
 {
     [SerializeField] private MonoBehaviour[] _components;
 
+    [SerializeField]
+    private List<GameObject> _goList = new List<GameObject>();
+
     private void OnEnable()
     {
         GameManager.OnGameStarted += StartGame;
