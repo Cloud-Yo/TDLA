@@ -8,6 +8,7 @@ public class PowerUpSpawnManager : MonoBehaviour
     [SerializeField] private WaitForSeconds _powerUpDelay = new WaitForSeconds(7.5f);
     [SerializeField] private Transform _container = null;
     [SerializeField] private bool _gameOver = false;
+    [SerializeField] private SpawnData[] _spawnOptions;
 
 
     private void OnEnable()
@@ -33,8 +34,12 @@ public class PowerUpSpawnManager : MonoBehaviour
             yield return _powerUpDelay;
             Vector2 pos = new Vector2(Random.Range(-6f, 6f), 5f);
             GameObject p = Instantiate(_powerUp, pos, Quaternion.identity);
-            p.GetComponent<PowerUp>().RandType();
+            int rand = BalancedSpawnUtility.ReturnRandomChoice(_spawnOptions);
+            int choice = Random.Range(0, _spawnOptions[rand].Items.Length);
+            p.GetComponent<PowerUp>().SetType(_spawnOptions[rand].Items[choice]);
             p.transform.SetParent(_container);
+
+            Debug.Log($"Spawned rarity is {_spawnOptions[rand].Rarity}");
         }
         
     }

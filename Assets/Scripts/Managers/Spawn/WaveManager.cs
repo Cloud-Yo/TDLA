@@ -10,6 +10,7 @@ public struct WaveData
     public int EnemyCount;
     public float EnemySpawnDelay;
     public GameObject[] Enemies;
+    public float[] Weights;
 }
 public class WaveManager : MonoBehaviour
 {

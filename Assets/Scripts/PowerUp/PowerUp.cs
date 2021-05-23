@@ -51,8 +51,18 @@ public class PowerUp : MonoBehaviour
 
     public void SetType(int i)
     {
-        _puType.sprite = _types[i];
+        
         _type = i;
+        if (i == 5)
+        {
+            i = Random.Range(0, _types.Length - 1);
+            _myMB.enabled = true;
+        }
+        else
+        {
+            _myMB.enabled = false;
+        }
+        _puType.sprite = _types[i];
     }
     public void RandType()
     {
@@ -76,7 +86,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //FireEvents: 0 = Powerup, 1 = PowerDown, 2 = Health, 3 = Reload, 4 = Health, 5 = Mimic
+            //FireEvents: 0 = MainAmmo, 1 = TripleShot, 2 = GrapeShot, 3 = Shields, 4 = Health, 5 = Mimic
             switch(_type)
             {
 

@@ -87083,6 +87083,19 @@ MonoBehaviour:
     type: 3}
   _container: {fileID: 1215185419}
   _gameOver: 0
+  _spawnOptions:
+  - Rarity: Common
+    Items: 0000000001000000
+    Weight: 40
+  - Rarity: Uncommon
+    Items: 03000000
+    Weight: 25
+  - Rarity: Rare
+    Items: 0200000004000000
+    Weight: 20
+  - Rarity: Super Rare
+    Items: 05000000
+    Weight: 15
 --- !u!114 &1998551452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87116,19 +87129,29 @@ MonoBehaviour:
     EnemyCount: 3
     EnemySpawnDelay: 5
     Enemies:
-    - {fileID: 3122045228219727660, guid: 25d0b7f8af8ef0d489f162aec09e4b58, type: 3}
+    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
+    Weights:
+    - 100
   - WaveName: Second Wave
     EnemyCount: 5
     EnemySpawnDelay: 3
     Enemies:
     - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
     - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
+    Weights:
+    - 60
+    - 40
   - WaveName: Third Wave
     EnemyCount: 8
     EnemySpawnDelay: 1.5
     Enemies:
     - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
     - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
+    - {fileID: 3122045228219727660, guid: 25d0b7f8af8ef0d489f162aec09e4b58, type: 3}
+    Weights:
+    - 60
+    - 25
+    - 15
   _onWaveInterval:
     m_PersistentCalls:
       m_Calls: []

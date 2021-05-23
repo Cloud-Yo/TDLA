@@ -25,11 +25,13 @@ public class WaveSpawner : MonoBehaviour
 
             if (!GameManager.Instance.GameIsOver)
             {
-                int rand = Random.Range(0, _myWD.Enemies.Length);
+                int rand = BalancedSpawnUtility.ReturnWaveRandomIndex(_myWD);
                 yield return _spawnDelay;
                 GameObject alien = Instantiate(_myWD.Enemies[rand], transform.position, Quaternion.identity);
                 alien.transform.SetParent(_container);
                 WaveManager.EnemyCount++;
+
+                Debug.Log($"spawned based on weight: {_myWD.Weights[rand]}");
             }
             else
             {
