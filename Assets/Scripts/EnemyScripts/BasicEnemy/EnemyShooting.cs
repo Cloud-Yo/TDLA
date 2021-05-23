@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _bulletPrefab = null;
+    [SerializeField] private Transform _container = null;
+    [SerializeField] private float _fireRate = 2.5f;
+    [SerializeField] private float _shotReady = -1f;
+    [SerializeField] private float _fireDistance = 5f;
+    [SerializeField] private LayerMask _targetLayer;
+    [SerializeField] private AudioSource _myAS = null;
+    [SerializeField] private AudioClip _fireSFX = null;
+
+    private bool _isPlayerInRange => Physics2D.Raycast(transform.position, Vector2.down, _fireDistance, _targetLayer);
+
+
+    private void Update()
     {
-        
+        if (_isPlayerInRange && CanFireCheck())
+        {
+            _shotReady = Time.time + _fireRate;
+            GameObject bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+            bullet.transform.tag = "EnemyBullet";
+            bullet.transform.SetParent(_container);
+            _myAS.PlayOneShot(_fireSFX, 0.6f);
+ 
+        }
+    }
+    private bool CanFireCheck()
+    {
+
+        if (Time.time > _shotReady)
+        {
+            return true;
+        }
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

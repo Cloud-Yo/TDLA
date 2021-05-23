@@ -22,12 +22,12 @@ public class PlayerModularShooting : MonoBehaviour
     private WaitForSeconds _shellDelay = new WaitForSeconds(0.15f);
     [SerializeField] private UnityEvent OnShellEject;
     [SerializeField] private AmmoCounter _myAC = null;
-    private ActionHandler _myAH = null;
+    private UnityEventHandler _myUEH = null;
     private SetParticleSystemColor _mySPSC = null;
     private void Start()
     {
         _mySPSC = GetComponent<SetParticleSystemColor>();
-        _myAH = GetComponent<ActionHandler>();
+        _myUEH = GetComponent<UnityEventHandler>();
         _myAN = GetComponent<PlayerAnimations>();
         foreach (var w in _weapons)
         {
@@ -75,7 +75,7 @@ public class PlayerModularShooting : MonoBehaviour
             {
                 _myAN.ActivateSideCannons(false);
             }
-            _myAH?.FireEvent(1);
+            _myUEH?.FireEvent(1);
             _weaponIndex = 0;
             if(_weapons[_weaponIndex].Ammo == 0)
             {
@@ -106,8 +106,12 @@ public class PlayerModularShooting : MonoBehaviour
             {
                 _weapons[i].UpdateAmmo(_weapons[i].AmmoReload);
                 _mySPSC.ChangePSColor(i);
-                _myAH?.FireEvent(3);
+                _myUEH?.FireEvent(3);
 
+            }
+            else
+            {
+                _myUEH.FireEvent(5);
             }
         }
         else
@@ -134,7 +138,7 @@ public class PlayerModularShooting : MonoBehaviour
 
         }
         _mySPSC.ChangePSColor(0);
-        _myAH?.FireEvent(3);
+        _myUEH?.FireEvent(3);
     }
     IEnumerator EjectShells(int shells)
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     [SerializeField] private float _spd = 10f;
+    [SerializeField] private GameObject _hitFX = null;
     private Vector3 _dir;
     private Vector3 _startPos;
     private bool _playerBullet;
@@ -16,6 +17,7 @@ public class BulletBehavior : MonoBehaviour
         {
             _dir = Vector3.up;
             _playerBullet = true;
+            this.gameObject.layer = 0;
         }
         else if(this.transform.CompareTag("EnemyBullet"))
         {
@@ -29,25 +31,18 @@ public class BulletBehavior : MonoBehaviour
         transform.Translate(_dir * _spd * Time.deltaTime);
         
     }
-    private void LateUpdate()
+
+    private void OnBecameInvisible()
     {
-        SelfDestruct();
+        Destroy(this.gameObject, 1.5f);
     }
 
-    private void SelfDestruct()
+    public void ShowHitFX()
     {
-        if(Vector2.Distance(_startPos, transform.position) > 12f)
+        if (_hitFX != null)
         {
-            if (transform.parent != null)
-            {
-                Destroy(transform.parent.gameObject);
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            Instantiate(_hitFX, transform.position, Quaternion.identity);
         }
-
     }
 
 }

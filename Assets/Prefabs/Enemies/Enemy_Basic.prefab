@@ -151,6 +151,7 @@ MonoBehaviour:
   _explosionFX: {fileID: 681283154280287486, guid: cffb38072a038ea408722fdbf1a84a2a,
     type: 3}
   _points: 35
+  _mimic: 0
 --- !u!114 &1380355193449013421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,11 +178,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31378112407742979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3524cb35f26546a468bf8943ce43ec36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 0}
+  _container: {fileID: 0}
+  _fireRate: 2.5
+  _shotReady: -1
+  _fireDistance: 5
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &4439163779183108582
 Animator:
   serializedVersion: 3

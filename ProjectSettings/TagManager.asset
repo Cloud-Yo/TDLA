@@ -10,6 +10,7 @@ TagManager:
   - PowerUp
   - PlayerBullet
   - StartGame
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Player
   - 
   - 
   - 

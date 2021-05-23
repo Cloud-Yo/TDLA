@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static Action OnGameOver;
     public static Action OnGameStarted;
     [SerializeField] private bool _gameOver = false;
+    public bool GameIsOver { get { return _gameOver; } }
     [SerializeField] private bool _gameStarted = false;
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private float _gmSpeed = 0.5f;

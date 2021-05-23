@@ -28,6 +28,7 @@ public class AmmoCounter : MonoBehaviour
         if (ammo > max)
         {
             ammo = max;
+
         }
 
         int tens = ammo / 10;

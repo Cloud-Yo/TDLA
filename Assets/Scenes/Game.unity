@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 111978250}
   - component: {fileID: 111978249}
   - component: {fileID: 111978251}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShellEject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11244,7 +11244,7 @@ GameObject:
   - component: {fileID: 259639618}
   - component: {fileID: 259639619}
   - component: {fileID: 259639620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankMotor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11522,7 +11522,7 @@ GameObject:
   - component: {fileID: 284102962}
   - component: {fileID: 284102964}
   - component: {fileID: 284102963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightTurretSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11563,7 +11563,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16288,7 +16287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 308363065}
   - component: {fileID: 308363066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16390,9 +16389,8 @@ Transform:
   m_Children:
   - {fileID: 637274205}
   - {fileID: 1802264199}
-  - {fileID: 2096077947}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329014277
 GameObject:
@@ -16744,7 +16742,7 @@ GameObject:
   - component: {fileID: 430028059}
   - component: {fileID: 430028061}
   - component: {fileID: 430028060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SideCannons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16952,7 +16950,7 @@ GameObject:
   - component: {fileID: 471053526}
   - component: {fileID: 471053528}
   - component: {fileID: 471053527}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21770,7 +21768,7 @@ Transform:
   - {fileID: 2003237344}
   - {fileID: 625807606}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &493170449
 GameObject:
@@ -26722,7 +26720,7 @@ GameObject:
   - component: {fileID: 524452592}
   - component: {fileID: 524452591}
   - component: {fileID: 524452590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrackSplashRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32969,7 +32967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741001131
 GameObject:
@@ -33242,7 +33240,7 @@ GameObject:
   - component: {fileID: 797293228}
   - component: {fileID: 797293230}
   - component: {fileID: 797293229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MainTurretSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38176,6 +38174,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177303651987719833, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177303651987719833, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -38233,6 +38236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656731274049819329, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dadb09dd6ce3aa46bd0543c353fac3b, type: 3}
@@ -38341,7 +38349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &856886707
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38550,7 +38558,7 @@ Transform:
   - {fileID: 1998551449}
   - {fileID: 678963618}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892024258
 GameObject:
@@ -39168,7 +39176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -60.000015}
   m_SizeDelta: {x: -418.86584, y: 144.76431}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986082991
@@ -39491,7 +39499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073974598}
   - component: {fileID: 1073974599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrackDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39579,7 +39587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1087407103}
   m_Layer: 0
-  m_Name: ----------MANAGERS----------
+  m_Name: -----------MANAGERS-----------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39597,7 +39605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099475850
 GameObject:
@@ -39641,7 +39649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1099475853
 MonoBehaviour:
@@ -39724,7 +39732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1117536485
 GameObject:
@@ -39891,7 +39899,7 @@ GameObject:
   - component: {fileID: 1180741085}
   - component: {fileID: 1180741087}
   - component: {fileID: 1180741086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40294,7 +40302,7 @@ GameObject:
   - component: {fileID: 1199473211}
   - component: {fileID: 1199473213}
   - component: {fileID: 1199473212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrackDustLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45085,6 +45093,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230526764}
+  - component: {fileID: 1230526768}
   - component: {fileID: 1230526760}
   - component: {fileID: 1230526769}
   - component: {fileID: 1230526767}
@@ -45093,12 +45102,11 @@ GameObject:
   - component: {fileID: 1230526771}
   - component: {fileID: 1230526772}
   - component: {fileID: 1230526773}
-  - component: {fileID: 1230526768}
   - component: {fileID: 1230526770}
   - component: {fileID: 1230526762}
   - component: {fileID: 1230526761}
   - component: {fileID: 1230526765}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -45120,6 +45128,8 @@ MonoBehaviour:
   _damageFX:
   - {fileID: 526308762}
   - {fileID: 838410687}
+  _playerDeathExplosion: {fileID: 6153505739205874811, guid: 2d520429c00c69843a92791f4f139104,
+    type: 3}
   _maxLives: 3
   _mySM: {fileID: 0}
   _myUIM: {fileID: 2068608698}
@@ -45203,7 +45213,7 @@ Transform:
   - {fileID: 2117848266}
   - {fileID: 2138120035}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1230526765
 AudioSource:
@@ -45340,6 +45350,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 379635ab9b70707489ebb39ed17fbaa4,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _myAC: {fileID: 2068608699}
 --- !u!114 &1230526767
 MonoBehaviour:
@@ -45374,6 +45396,7 @@ MonoBehaviour:
   _components:
   - {fileID: 1230526767}
   - {fileID: 1230526766}
+  - {fileID: 1230526769}
   _goList: []
 --- !u!114 &1230526769
 MonoBehaviour:
@@ -45445,7 +45468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1230526759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac86caec288d6b84d9a0b1e253486822, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d0235b012c7f1b4684d34863fe5458c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _events:
@@ -45462,8 +45485,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 602455934}
-        m_MethodName: PlayOneShotClip
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: c23555f987d8a2c438facf3455929212,
@@ -45487,8 +45510,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 602455934}
-        m_MethodName: PlayOneShotClip
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 1989d345eabd70f47b5d872800cdbed4,
@@ -45512,6 +45535,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 743a2705748f1c9449743337428fbd9d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1677235127}
@@ -45520,6 +45555,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a8be530f072836441b75fa8cc596cf17,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -45536,6 +45583,31 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Shake
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1230526765}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 89aeed9f078fea44c98aa5504d1bd159,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Shake
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1441141589}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1230526773
@@ -45568,7 +45640,7 @@ GameObject:
   - component: {fileID: 1273161185}
   - component: {fileID: 1273161187}
   - component: {fileID: 1273161186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrackDustRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50483,8 +50555,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1369761465}
   - component: {fileID: 1369761468}
-  - component: {fileID: 1369761467}
-  - component: {fileID: 1369761466}
   m_Layer: 0
   m_Name: SafeZoneLimit
   m_TagString: Untagged
@@ -50508,34 +50578,6 @@ Transform:
   m_Father: {fileID: 1802264199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369761466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369761464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988425e33e5791143bdce331b9beea00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _destroyPoint: 6.5
---- !u!114 &1369761467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369761464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e79e491409daf429e3a2f2760790b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spd: 0
-  _currentSpd: 0
-  _spdMult: 2
 --- !u!212 &1369761468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50673,7 +50715,7 @@ GameObject:
   - component: {fileID: 1441141587}
   - component: {fileID: 1441141589}
   - component: {fileID: 1441141588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PowerDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55637,7 +55679,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485397423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f23315c6ddf1b5a49b6f7ed48bab0b52, type: 3}
   m_Name: 
@@ -55805,7 +55847,7 @@ GameObject:
   - component: {fileID: 1585003161}
   - component: {fileID: 1585003163}
   - component: {fileID: 1585003162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61192,7 +61234,7 @@ GameObject:
   - component: {fileID: 1677235129}
   - component: {fileID: 1677235127}
   - component: {fileID: 1677235128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReloadParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66585,6 +66627,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1802264199}
+  - component: {fileID: 1802264201}
+  - component: {fileID: 1802264200}
   m_Layer: 0
   m_Name: BaseCamp
   m_TagString: Untagged
@@ -66604,9 +66648,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1369761465}
+  - {fileID: 2096077947}
   m_Father: {fileID: 314936289}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1802264200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802264198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988425e33e5791143bdce331b9beea00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyPoint: 8.5
+--- !u!114 &1802264201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802264198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e79e491409daf429e3a2f2760790b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spd: 0
+  _currentSpd: 0
+  _spdMult: 2
 --- !u!1 &1815251507
 GameObject:
   m_ObjectHideFlags: 0
@@ -66619,7 +66692,7 @@ GameObject:
   - component: {fileID: 1815251509}
   - component: {fileID: 1815251510}
   - component: {fileID: 1815251511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72234,7 +72307,7 @@ GameObject:
   - component: {fileID: 1954873782}
   - component: {fileID: 1954873781}
   - component: {fileID: 1954873780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrackSplashLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77036,7 +77109,7 @@ GameObject:
   - component: {fileID: 1967413592}
   - component: {fileID: 1967413594}
   - component: {fileID: 1967413593}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftTurretSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86955,7 +87028,7 @@ GameObject:
   - component: {fileID: 1998551451}
   - component: {fileID: 1998551452}
   - component: {fileID: 1998551454}
-  - component: {fileID: 1998551453}
+  - component: {fileID: 1998551450}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -86981,6 +87054,19 @@ Transform:
   m_Father: {fileID: 890474466}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998551450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998551448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7047caf034c4fd1428ebde178de3739e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 0}
 --- !u!114 &1998551451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87010,10 +87096,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 1998551454}
   - {fileID: 1998551451}
   _goList: []
---- !u!114 &1998551453
+--- !u!114 &1998551454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87022,43 +87107,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1998551448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aae0353389988a347a2f5b7177af97fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myWS: 1
-  _waves:
-  - Enemies:
-    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
-    WaveID: 0
-    EnemyCount: 3
-    EnemySpawnDelay: 5
-  - Enemies:
-    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
-    - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
-    WaveID: 1
-    EnemyCount: 5
-    EnemySpawnDelay: 3.5
-  - Enemies:
-    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
-    - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
-    WaveID: 2
-    EnemyCount: 8
-    EnemySpawnDelay: 2
-  _conatainer: {fileID: 1710366225}
-  _gameOver: 0
---- !u!114 &1998551454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998551448}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715dff6251f76fc4d92057d82acbf227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _waveID: 0
+  _waveData:
+  - WaveName: First Wave
+    EnemyCount: 3
+    EnemySpawnDelay: 5
+    Enemies:
+    - {fileID: 3122045228219727660, guid: 25d0b7f8af8ef0d489f162aec09e4b58, type: 3}
+  - WaveName: Second Wave
+    EnemyCount: 5
+    EnemySpawnDelay: 3
+    Enemies:
+    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
+    - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
+  - WaveName: Third Wave
+    EnemyCount: 8
+    EnemySpawnDelay: 1.5
+    Enemies:
+    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
+    - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
   _onWaveInterval:
     m_PersistentCalls:
       m_Calls: []
@@ -87283,7 +87353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051507018}
   m_Layer: 0
-  m_Name: -----------PLAYER-----------
+  m_Name: -------------PLAYER-------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87301,7 +87371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068608696
 GameObject:
@@ -87635,8 +87705,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2096077947}
   - component: {fileID: 2096077950}
-  - component: {fileID: 2096077949}
-  - component: {fileID: 2096077948}
   - component: {fileID: 2096077951}
   m_Layer: 0
   m_Name: StartGameCollider
@@ -87652,41 +87720,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096077946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.85, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 314936289}
-  m_RootOrder: 2
+  m_Father: {fileID: 1802264199}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2096077948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096077946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988425e33e5791143bdce331b9beea00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _destroyPoint: 6.5
---- !u!114 &2096077949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096077946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e79e491409daf429e3a2f2760790b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spd: 0
-  _currentSpd: 0
-  _spdMult: 2
 --- !u!61 &2096077950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87736,7 +87776,7 @@ GameObject:
   - component: {fileID: 2117848266}
   - component: {fileID: 2117848268}
   - component: {fileID: 2117848267}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankTracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87917,7 +87957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138120035}
   - component: {fileID: 2138120036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PowerUpFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88154,6 +88194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177303651987719833, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177303651987719833, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -88216,6 +88261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656731274049819329, guid: 4dadb09dd6ce3aa46bd0543c353fac3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dadb09dd6ce3aa46bd0543c353fac3b, type: 3}

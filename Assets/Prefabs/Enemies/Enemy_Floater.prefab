@@ -155,6 +155,7 @@ MonoBehaviour:
   _explosionFX: {fileID: 399525645200482198, guid: 3dd2a0c42b14c104ab8309c9bebbc5da,
     type: 3}
   _points: 65
+  _mimic: 0
 --- !u!50 &2868004800607861450
 Rigidbody2D:
   serializedVersion: 4
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3981426270006133899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b70e8e09524c14c820d9b0c910ecf3, type: 3}
+  m_Script: {fileID: 11500000, guid: 485577f546830574597410151833255d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 0}

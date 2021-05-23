@@ -10,8 +10,9 @@ public class PlayerCore : MonoBehaviour
     private PlayerModularShooting _myPShoot = null;
     private PlayerAnimations _myAN = null;
     private PlayerShields _myPSH = null;
-    private ActionHandler _myAH = null; 
+    private UnityEventHandler _myUEH = null; 
     [SerializeField] private GameObject[] _damageFX;
+    [SerializeField] private GameObject _playerDeathExplosion = null;
 
     [Header("Player Variables")]
     private int _lives = 3;
@@ -29,7 +30,7 @@ public class PlayerCore : MonoBehaviour
         _myPMove = GetComponent<PlayerMovement>();
         _myPShoot = GetComponent<PlayerModularShooting>();
         _myAN = GetComponent<PlayerAnimations>();
-        _myAH = GetComponent<ActionHandler>();
+        _myUEH = GetComponent<UnityEventHandler>();
         _myPSH = GetComponent<PlayerShields>();
     }
     void Start()
@@ -44,7 +45,7 @@ public class PlayerCore : MonoBehaviour
 
     public void TakeDamage()
     {
-        _myAH.FireEvent(4);
+        _myUEH.FireEvent(4);
         if(_myPSH.AreShieldsActive())
         {
             _myPSH.DamageShield(1);
@@ -61,11 +62,11 @@ public class PlayerCore : MonoBehaviour
                 
                 _myUIM.GameOver();
                 _myGM.GameOver();
+                Instantiate(_playerDeathExplosion, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }
-  
-       
+ 
     }
 
     void DisplayDamage()
@@ -117,7 +118,13 @@ public class PlayerCore : MonoBehaviour
         if (other.CompareTag("UI"))
         {
             _myUIM.SetUIOpacity(true);
-            Debug.Log("Entered UI");
+
+        }
+        if (other.CompareTag("EnemyBullet"))
+        {
+            other.transform.GetComponent<BulletBehavior>().ShowHitFX();
+            Destroy(other.gameObject);
+            TakeDamage();
         }
     }
 
@@ -126,7 +133,7 @@ public class PlayerCore : MonoBehaviour
         if (other.CompareTag("UI"))
         {
             _myUIM.SetUIOpacity(false);
-            Debug.Log("Left UI");
+        
         }
     }
 }
