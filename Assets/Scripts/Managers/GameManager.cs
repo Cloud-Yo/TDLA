@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         while (_gmSpeed < _speed)
         {
-            _gmSpeed += Time.deltaTime;
+            _gmSpeed = Mathf.MoveTowards(_gmSpeed, _speed,  Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }

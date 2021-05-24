@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _spd = 2f;
     [SerializeField] private float _currentSpd = 2f;
     [SerializeField] private float _spdDelta = 0.5f;
+    [SerializeField] private float _baseSpeed = 0.5f;
     [SerializeField] private Rigidbody2D _myRB = null;
     [SerializeField] private GameManager _gm = null;
     [SerializeField] private EnemyCore _myEC = null;
@@ -43,11 +44,12 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            _spd = _spdDelta;
+            
+            _spd = _baseSpeed;
         }
         
         _currentSpd = s;
-        _spdDelta = Mathf.Clamp(_spdDelta, 1f, 100f);
+        
     }
     // Update is called once per frame
     void Update()

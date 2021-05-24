@@ -87066,7 +87066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7047caf034c4fd1428ebde178de3739e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 0}
+  _container: {fileID: 1710366225}
 --- !u!114 &1998551451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87129,7 +87129,7 @@ MonoBehaviour:
     EnemyCount: 3
     EnemySpawnDelay: 5
     Enemies:
-    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
+    - {fileID: 1028080497618657443, guid: 7129b76664af5d0478c0e49abfdf1215, type: 3}
     Weights:
     - 100
   - WaveName: Second Wave
@@ -87149,9 +87149,22 @@ MonoBehaviour:
     - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
     - {fileID: 3122045228219727660, guid: 25d0b7f8af8ef0d489f162aec09e4b58, type: 3}
     Weights:
-    - 60
-    - 25
-    - 15
+    - 20
+    - 30
+    - 50
+  - WaveName: Fourth Wave
+    EnemyCount: 12
+    EnemySpawnDelay: 1.25
+    Enemies:
+    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
+    - {fileID: 3981426270206822395, guid: 3838f0da0e313314995471a6787f4487, type: 3}
+    - {fileID: 3122045228219727660, guid: 25d0b7f8af8ef0d489f162aec09e4b58, type: 3}
+    - {fileID: 1028080497618657443, guid: 7129b76664af5d0478c0e49abfdf1215, type: 3}
+    Weights:
+    - 10
+    - 20
+    - 30
+    - 40
   _onWaveInterval:
     m_PersistentCalls:
       m_Calls: []

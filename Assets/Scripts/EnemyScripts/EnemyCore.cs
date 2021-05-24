@@ -6,14 +6,21 @@ public class EnemyCore : MonoBehaviour
 {
     private UIManager _myUIM = null;
     private GameManager _myGM = null;
+     private Animator _myAN = null;
+    private AudioSource _myAS = null;
     [SerializeField] private GameObject _explosionFX = null;
     [SerializeField] private int _points = 35;
     private Rigidbody2D _myRB2D = null;
     private ScoreManager _mySM = null;
+    [Header("Is Mimic")]
     [SerializeField] private bool _mimic = false;
-
+    [Header("Has Shield")]
+    [SerializeField] private bool _shield = false;
+    [SerializeField] private AudioClip _shieldBreakAudioClip = null;
     private void OnEnable()
     {
+        _myAS = GetComponent<AudioSource>();
+        _myAN = GetComponent<Animator>();
         _myRB2D = GetComponent<Rigidbody2D>();
         _mySM = FindObjectOfType<ScoreManager>();
         _myGM = FindObjectOfType<GameManager>();
@@ -25,11 +32,16 @@ public class EnemyCore : MonoBehaviour
 
          if(other.CompareTag("PlayerBullet"))
          {
-            Destroy(_myRB2D);
             Destroy(other.gameObject);
-            Instantiate(_explosionFX, transform.position, Quaternion.identity);
-            _mySM.UpdateScore(_points);
-            Destroy(this.gameObject);
+            if (!_shield)
+            {
+                BulletHit();
+            }
+            else
+            {
+                ShieldHit();
+            }
+            
          }
          else if(other.CompareTag("Player"))
          {
@@ -41,6 +53,22 @@ public class EnemyCore : MonoBehaviour
 
          }
 
+    }
+
+    private void BulletHit()
+    {
+        Destroy(_myRB2D);
+        Instantiate(_explosionFX, transform.position, Quaternion.identity);
+        _mySM.UpdateScore(_points);
+        Destroy(this.gameObject);
+    }
+
+    private void ShieldHit()
+    {
+        _myAN.SetTrigger("BreakShield");
+        _myAS.PlayOneShot(_shieldBreakAudioClip, 0.5f);
+        _shield = false;
+        
     }
 
     private void OnDestroy()
