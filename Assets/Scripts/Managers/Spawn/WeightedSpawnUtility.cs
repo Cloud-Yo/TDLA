@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using System;
+using System.Linq;
+using Random = UnityEngine.Random;
 
-public static class BalancedSpawnUtility
+public static class WeightedSpawnUtility
 {
 
 
@@ -25,18 +28,15 @@ public static class BalancedSpawnUtility
     public static int ReturnWaveRandomIndex(WaveData wd)
     {
         float rand = Random.Range(0f, 100f);
+        rand = 100 - rand;
 
-        for (int i = 0; i < wd.Weights.Length; i++)
+        float[] results = new float[wd.Weights.Length];
+
+        for (int i = 0; i < results.Length; i++)
         {
-            if ((rand - wd.Weights[i]) <= 0)
-            {
-                return i;
-            }
-            else
-            {
-                rand -= wd.Weights[i];
-            }
+            results[i] = Mathf.Abs(rand - wd.Weights[i]);
         }
-        return 0;
+        return Array.IndexOf(results,results.Min());
+
     }
 }

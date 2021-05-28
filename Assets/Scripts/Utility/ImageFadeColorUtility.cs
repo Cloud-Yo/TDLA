@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class ImageFadeColorUtility : MonoBehaviour
 {
 
-
-
     [SerializeField]
     private Image _myImg = null;
 
@@ -24,7 +22,6 @@ public class ImageFadeColorUtility : MonoBehaviour
 
    public void FadeColor()
     {
-
        StartCoroutine(ColorFade());
     }
 

@@ -7,8 +7,10 @@ using TMPro;
 public class MainMenuUIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _startText;
+    [SerializeField] private ImageFadeColorUtility _myIFCU = null;
     void Start()
     {
+        _myIFCU?.FadeColor();
         StartCoroutine(BlinkText());
     }
 

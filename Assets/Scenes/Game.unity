@@ -45207,7 +45207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230526759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -0.5, z: 0}
+  m_LocalPosition: {x: -3.2, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2117848266}
@@ -65964,7 +65964,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87129,7 +87128,7 @@ MonoBehaviour:
     EnemyCount: 3
     EnemySpawnDelay: 5
     Enemies:
-    - {fileID: 1028080497618657443, guid: 7129b76664af5d0478c0e49abfdf1215, type: 3}
+    - {fileID: 31378112407742979, guid: 9d086aa5c6f83894192749a1289f92f3, type: 3}
     Weights:
     - 100
   - WaveName: Second Wave

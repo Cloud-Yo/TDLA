@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FloaterMovement : MonoBehaviour
 {
     [SerializeField] private Transform _parent = null;
@@ -10,8 +11,9 @@ public class FloaterMovement : MonoBehaviour
     [SerializeField] private bool _isDead = false;
     void Start()
     {
+
         _sinFreq = Random.Range(1f, 5f);
-        _sinAmplitude = Random.Range(-0.75f, -1.25f);
+        _sinAmplitude = Random.Range(0.75f, 1.25f);
         _parent = transform.parent.transform;
     }
 
@@ -23,13 +25,10 @@ public class FloaterMovement : MonoBehaviour
 
     private void FloaterMove()
     {
-        if (!_isDead)
-        {
-            float x = (_parent.position.x + Mathf.Sin(Time.time * _sinFreq) * _sinAmplitude);
-            float y = _parent.position.y;
 
-            transform.position = new Vector2(x, y);
-        }
+        float x = (_parent.position.x + Mathf.Sin(Time.time * _sinFreq) * _sinAmplitude);
+        transform.position = new Vector2(x, transform.position.y);
+        
 
     }
 }

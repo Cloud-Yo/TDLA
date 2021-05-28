@@ -24,6 +24,8 @@ public class PlayerModularShooting : MonoBehaviour
     [SerializeField] private AmmoCounter _myAC = null;
     private UnityEventHandler _myUEH = null;
     private SetParticleSystemColor _mySPSC = null;
+
+    private bool _canFireCheck => Time.time > _shotReady;
     private void Start()
     {
         _mySPSC = GetComponent<SetParticleSystemColor>();
@@ -41,7 +43,7 @@ public class PlayerModularShooting : MonoBehaviour
 
     public void FireWeapon()
     {
-        if (_weapons[_weaponIndex].Ammo > 0 && CanFireCheck())
+        if (_weapons[_weaponIndex].Ammo > 0 && _canFireCheck)
         {
             _weapons[_weaponIndex].UpdateAmmo(-1);
             _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
@@ -69,7 +71,7 @@ public class PlayerModularShooting : MonoBehaviour
             }
         }
         //if weapon is out of ammo and it's not main weapon
-        else if(_weapons[_weaponIndex].Ammo <= 0 && _weaponIndex != 0 && CanFireCheck())
+        else if(_weapons[_weaponIndex].Ammo <= 0 && _weaponIndex != 0 && _canFireCheck)
         {
             if(_weapons[_weaponIndex].WSOT == WeaponSO.WeaponSOType.tripleShot)
             {
@@ -88,15 +90,8 @@ public class PlayerModularShooting : MonoBehaviour
 
     }
 
-    private bool CanFireCheck()
-    {
+   
 
-        if (Time.time > _shotReady)
-        {
-            return true;
-        }
-        return false;
-    }
 
     public void SwitchWeapon(int i)
     {

@@ -12,6 +12,7 @@ public class TextAnimator : MonoBehaviour
     void Start()
     {
         _myAS = gameObject.GetComponent<AudioSource>();
+        
     }
    public void AnimateText(TMP_Text txt)
     {

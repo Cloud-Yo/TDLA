@@ -13,12 +13,12 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private AudioSource _myAS = null;
     [SerializeField] private AudioClip _fireSFX = null;
 
-    private bool _isPlayerInRange => Physics2D.Raycast(transform.position, Vector2.down, _fireDistance, _targetLayer);
+    private bool _canShoot => Physics2D.Raycast(transform.position, Vector2.down, _fireDistance, _targetLayer) && Time.time > _shotReady;
 
 
     private void Update()
     {
-        if (_isPlayerInRange && CanFireCheck())
+        if (_canShoot)
         {
             _shotReady = Time.time + _fireRate;
             GameObject bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
@@ -28,15 +28,6 @@ public class EnemyShooting : MonoBehaviour
  
         }
     }
-    private bool CanFireCheck()
-    {
-
-        if (Time.time > _shotReady)
-        {
-            return true;
-        }
-        return false;
-    }
-
+  
 
 }

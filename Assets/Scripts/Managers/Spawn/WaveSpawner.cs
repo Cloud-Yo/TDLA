@@ -25,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
 
             if (!GameManager.Instance.GameIsOver)
             {
-                int rand = BalancedSpawnUtility.ReturnWaveRandomIndex(_myWD);
+                int rand = WeightedSpawnUtility.ReturnWaveRandomIndex(_myWD);
                 yield return _spawnDelay;
                 GameObject alien = Instantiate(_myWD.Enemies[rand], transform.position, Quaternion.identity);
                 alien.transform.SetParent(_container);

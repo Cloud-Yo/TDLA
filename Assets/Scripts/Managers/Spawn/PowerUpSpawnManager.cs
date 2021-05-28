@@ -34,7 +34,7 @@ public class PowerUpSpawnManager : MonoBehaviour
             yield return _powerUpDelay;
             Vector2 pos = new Vector2(Random.Range(-6f, 6f), 5f);
             GameObject p = Instantiate(_powerUp, pos, Quaternion.identity);
-            int rand = BalancedSpawnUtility.ReturnRandomChoice(_spawnOptions);
+            int rand = WeightedSpawnUtility.ReturnRandomChoice(_spawnOptions);
             int choice = Random.Range(0, _spawnOptions[rand].Items.Length);
             p.GetComponent<PowerUp>().SetType(_spawnOptions[rand].Items[choice]);
             p.transform.SetParent(_container);
