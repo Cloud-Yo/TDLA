@@ -1,43 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
+
 public class DialogueManager : MonoBehaviour
 {
-    public enum Speaker
-    {
-        Player,
-        NPC
-    }
-    [SerializeField] private Speaker _currentSpeaker;
-    [SerializeField] private TMP_Text _dialogueText = null;
-    [SerializeField] private TMP_Text _npcName = null;
-    [SerializeField] private Image _npcImg = null;
-    [SerializeField] private Image _playerImg = null;
-    [SerializeField] private Animator _npcImgAN = null;
     private int _index = 0;
-    private DialogueSO _myDSO = null;
-    public DialogueSO MyDSO
+    private ConversationManager _myCM = null;
+    [SerializeField] private DialogueSO[] _dialogues;
+    [SerializeField] private MoveToLocation _playerMTL = null;
+
+    private void Start()
     {
-        get { return _myDSO; }
-        set { _myDSO = value; }
+        _myCM = GetComponent<ConversationManager>();
+        _index = 0;
     }
 
-
-    
-    // Start is called before the first frame update
-    void Start()
+    public void StartNewDialogue()
     {
-        //set starting dialogueSO
-        //start first dialogue Coroutine
-    }
+        if(_index < _dialogues.Length)
+        {
+            _myCM.MyDSO = _dialogues[_index];
 
-    // Update is called once per frame
-    void Update()
-    {
+
+            if(GameManager.Instance.GameStarted)
+            {
+                GameManager.Instance.ResumeControls(false);
+                _playerMTL.TravelToCenter(StartDialogue);
+            }
+            else
+            {
+                StartDialogue();   
+            }
+            _index++;
+        }
+        else
+        {
+            return;
+        }
         
     }
 
-    
+    public void StartDialogue()
+    {
+        _myCM.StartConversation();
+    }
+   
 }

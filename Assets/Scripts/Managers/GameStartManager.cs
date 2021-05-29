@@ -9,6 +9,7 @@ public class GameStartManager : MonoBehaviour
    
     void Start()
     {
+
         StartCoroutine(BeginGame());
     }
 

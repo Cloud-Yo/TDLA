@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     public static Action<float> OnSetGlobalSpeed;
     public static Action OnGameOver;
     public static Action OnGameStarted;
+    public static Action<bool> OnEnableControls;
     [SerializeField] private bool _gameOver = false;
     public bool GameIsOver { get { return _gameOver; } }
     [SerializeField] private bool _gameStarted = false;
+    public bool GameStarted { get { return _gameStarted; } }
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private float _gmSpeed = 0.5f;
+
 
 
     private void Awake()
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void StartMoving()
     {
+        
         StartCoroutine(GetMoving());
     }
 
@@ -77,6 +81,12 @@ public class GameManager : MonoBehaviour
     {
         _gameStarted = true;
         OnGameStarted?.Invoke();
+        ResumeControls(true);
+    }
+
+    public void ResumeControls(bool control)
+    {
+        OnEnableControls?.Invoke(control);
     }
 
     IEnumerator GetMoving()

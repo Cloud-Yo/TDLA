@@ -11,12 +11,12 @@ public class ComponentHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnGameStarted += StartGame;
+        GameManager.OnEnableControls += HandleComponents;
     }
 
     private void OnDisable()
     {
-        GameManager.OnGameStarted -= StartGame;
+        GameManager.OnEnableControls -= HandleComponents;
     }
     void Start()
     {
@@ -26,11 +26,6 @@ public class ComponentHandler : MonoBehaviour
         }
     }
 
-    private void StartGame()
-    {
-        GameManager.OnGameStarted -= StartGame;
-        HandleComponents(true);
-    }
     public void HandleComponents(bool on)
     {
         

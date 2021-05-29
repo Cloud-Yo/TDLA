@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 89e417dda663b7b4f89be7b931aa0cbb
+guid: 05a4724cf27a7d947a77f6a0bd5c275b
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -8305613360011142082
-    second: Slice-UI-Panel002_0
-  - first:
-      213: 4345672230349914492
-    second: Slice-UI-Panel002_1
-  - first:
-      213: -2724523768236981216
-    second: Slice-UI-Panel002_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,17 +36,17 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 11, y: 25, z: 11, w: 23}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -118,70 +109,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Slice-UI-Panel002_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 12, y: 12, z: 12, w: 12}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3c1cc277a88cbc80800000000000000
-      internalID: -8305613360011142082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slice-UI-Panel002_1
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 73
-        width: 44
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 7, z: 8, w: 7}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7149408eddee4c30800000000000000
-      internalID: 4345672230349914492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slice-UI-Panel002_2
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 10
-        width: 44
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0244024611c803ad0800000000000000
-      internalID: -2724523768236981216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,13 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName ="Dialogue", menuName ="TDLA/RPG/Dialogue")]
+[CreateAssetMenu(fileName = "Dialogue", menuName = "TDLA/RPG/Dialogue")]
 public class DialogueSO : ScriptableObject
 {
-    [TextArea(2, 5)]
-    [SerializeField] private string[] _sentences;
-    [SerializeField] private string _charName;
-    [SerializeField] private Sprite _charPortrait;
+    [SerializeField] private Sentence[] _sentences;
 
+    public Sentence[] Sentences
+    {
+        get { return _sentences; }
+        set { _sentences = value; }
+    }
+
+    [SerializeField] private Sprite _leftSprite;
+    public Sprite LeftSprite { get { return _leftSprite; } set { _leftSprite = value; } }
+    [SerializeField] private Sprite _rightSprite;
+    public Sprite RightSprite { get { return _rightSprite; } set { _rightSprite = value; } }
 }

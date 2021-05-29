@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b3be7cbf239134eb9f25fb84c2b903, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  _sentences:
+  - Name: Lt. Summers
+    SpeakerSide: 0
+    DialogueSentence: Greetings <style="Com">Commander</style>. The situation is
+      critical.  We have identified a <style="White">Class 3 Threat</style> heading
+      towards the center of L.A.
+    SentenceColor: {r: 0, g: 0.5594096, b: 1, a: 1}
+  - Name: Lt. Summers
+    SpeakerSide: 0
+    DialogueSentence: 'Be advised, we did not have enough time to resupply your <style="Com">MKVII
+      ThunderTread</style>. '
+    SentenceColor: {r: 0, g: 0.5594096, b: 1, a: 1}
+  - Name: Commander
+    SpeakerSide: 1
+    DialogueSentence: 'Understood, <style="Blue">Lt. Summers</style>.  I have been
+      in worse situations than this before. '
+    SentenceColor: {r: 0.22745098, g: 1, b: 0, a: 1}
+  - Name: Lt. Summers
+    SpeakerSide: 0
+    DialogueSentence: Reports indicate that small <style="White">caches of ammunition</style>
+      can be found along the riverbed.
+    SentenceColor: {r: 0, g: 0.5594096, b: 1, a: 1}
+  - Name: Lt. Summers
+    SpeakerSide: 0
+    DialogueSentence: Stay sharp out there <style="Com">Commander</style>, we are
+      counting on you.
+    SentenceColor: {r: 0, g: 0.5594096, b: 1, a: 1}
+  - Name: Commander
+    SpeakerSide: 1
+    DialogueSentence: Roger that, Lieutenant!  All systems are go.  I am <style=white">Oscar
+      Mike</style>.
+    SentenceColor: {r: 0.22745098, g: 1, b: 0, a: 1}
+  _leftSprite: {fileID: 21300000, guid: b672f6af7a46fb64bab527fac8bc4f30, type: 3}
+  _rightSprite: {fileID: 21300000, guid: 1942cdc1b5c8db04f9c39693000c2cf5, type: 3}
