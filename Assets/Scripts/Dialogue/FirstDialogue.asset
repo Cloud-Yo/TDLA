@@ -28,7 +28,7 @@ MonoBehaviour:
     SpeakerSide: 1
     DialogueSentence: 'Understood, <style="Blue">Lt. Summers</style>.  I have been
       in worse situations than this before. '
-    SentenceColor: {r: 0.22745098, g: 1, b: 0, a: 1}
+    SentenceColor: {r: 1, g: 0.4345021, b: 0.3726415, a: 1}
   - Name: Lt. Summers
     SpeakerSide: 0
     DialogueSentence: Reports indicate that small <style="White">caches of ammunition</style>
@@ -43,6 +43,6 @@ MonoBehaviour:
     SpeakerSide: 1
     DialogueSentence: Roger that, Lieutenant!  All systems are go.  I am <style=white">Oscar
       Mike</style>.
-    SentenceColor: {r: 0.22745098, g: 1, b: 0, a: 1}
+    SentenceColor: {r: 1, g: 0.4345021, b: 0.3726415, a: 1}
   _leftSprite: {fileID: 21300000, guid: b672f6af7a46fb64bab527fac8bc4f30, type: 3}
   _rightSprite: {fileID: 21300000, guid: 1942cdc1b5c8db04f9c39693000c2cf5, type: 3}

@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: 89e417dda663b7b4f89be7b931aa0cbb
+guid: f93ae1942b9f67b47932b0a05df59f02
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8305613360011142082
-    second: Slice-UI-Panel002_0
+      213: 1677364083242894275
+    second: QuadrupedSpritePack002_0
   - first:
-      213: 4345672230349914492
-    second: Slice-UI-Panel002_1
+      213: -8775977062215000106
+    second: QuadrupedSpritePack002_1
   - first:
-      213: -2724523768236981216
-    second: Slice-UI-Panel002_2
+      213: -3233091281817995891
+    second: QuadrupedSpritePack002_2
+  - first:
+      213: -1836412374716907252
+    second: QuadrupedSpritePack002_3
+  - first:
+      213: 1041138524948034089
+    second: QuadrupedSpritePack002_4
+  - first:
+      213: -8780443174222217253
+    second: QuadrupedSpritePack002_5
+  - first:
+      213: 7520306205318372565
+    second: QuadrupedSpritePack002_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,13 +57,13 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -120,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slice-UI-Panel002_0
+      name: QuadrupedSpritePack002_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,56 +140,140 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 12, y: 12, z: 12, w: 12}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3c1cc277a88cbc80800000000000000
-      internalID: -8305613360011142082
+      spriteID: 3c301b42fb1374710800000000000000
+      internalID: 1677364083242894275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slice-UI-Panel002_1
+      name: QuadrupedSpritePack002_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 73
-        width: 44
-        height: 45
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 7, z: 8, w: 7}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7149408eddee4c30800000000000000
-      internalID: 4345672230349914492
+      spriteID: 6dfd2b9eb57753680800000000000000
+      internalID: -8775977062215000106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slice-UI-Panel002_2
+      name: QuadrupedSpritePack002_2
       rect:
         serializedVersion: 2
-        x: 10
-        y: 10
-        width: 44
-        height: 45
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0244024611c803ad0800000000000000
-      internalID: -2724523768236981216
+      spriteID: d8573dcdb90c123d0800000000000000
+      internalID: -3233091281817995891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuadrupedSpritePack002_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c010ed7cca0c386e0800000000000000
+      internalID: -1836412374716907252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuadrupedSpritePack002_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9227085e8fdd27e00800000000000000
+      internalID: 1041138524948034089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuadrupedSpritePack002_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf3bfd2479952680800000000000000
+      internalID: -8780443174222217253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuadrupedSpritePack002_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dcda2246ae7d5860800000000000000
+      internalID: 7520306205318372565
       vertices: []
       indices: 
       edges: []
@@ -185,7 +281,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 2a5bb86a46e93cc4dbbfacd302d42899
     internalID: 0
     vertices: []
     indices: 

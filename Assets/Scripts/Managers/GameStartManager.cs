@@ -6,7 +6,8 @@ public class GameStartManager : MonoBehaviour
 {
     [SerializeField] private ImageFadeColorUtility _myIFCU = null;
     [SerializeField] private Animator _dialoguePanelAN = null;
-   
+ 
+
     void Start()
     {
 

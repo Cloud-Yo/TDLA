@@ -73,18 +73,15 @@ public class FireLaser : MonoBehaviour
         _laserHit = Physics2D.Raycast(this.transform.position, Vector2.down, _laserRange, _playerLayerMask);
         if (_laserHit.collider != null)
         {
-
-            Debug.Log("Player hit by laser");
             Instantiate(_laserHitPS, _laserHit.point, Quaternion.identity);
             _myAS.PlayOneShot(_laserHitClip, 0.5f);
             _laserHit.collider.GetComponent<PlayerCore>().TakeDamage();
-            _fireLaser = false;
             _canFire = Time.time + _fireRate;
+            _fireLaser = false;
             _laserLineR.enabled = false;
         }
         else
         {
-            Debug.Log("Player missed!");
             _fireLaser = false;
             _canFire = Time.time + _fireRate;
             _laserLineR.enabled = false;

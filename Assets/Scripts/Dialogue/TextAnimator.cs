@@ -8,7 +8,7 @@ public class TextAnimator : MonoBehaviour
 {
     private AudioSource _myAS = null;
     [SerializeField] private AudioClip _txtAudioClip = null;
-    //disable during animation and enable at end.
+
     [SerializeField] private Button _continueButton = null;
     private TMP_Text _text = null;
     private int _visibleChar = 0;
@@ -20,7 +20,7 @@ public class TextAnimator : MonoBehaviour
     void Start()
     {
         _myAS = gameObject.GetComponent<AudioSource>();
-        //Disable Continue Button
+       // _continueButton.enabled = false;
 
     }
     public void AnimateText(TMP_Text txt)
@@ -28,8 +28,8 @@ public class TextAnimator : MonoBehaviour
         _text = txt;
         _charCount = _text.GetTextInfo(_text.text).characterCount;
         _visibleChar = 0;
-        //disable Continue Button
         StartCoroutine(TextAnimation());
+        _continueButton.enabled = true;
 
     }
 
@@ -40,7 +40,7 @@ public class TextAnimator : MonoBehaviour
             StopAllCoroutines();
             _text.maxVisibleCharacters = _charCount;
             _visibleChar = _charCount;
-            //enable Continue Button
+  
         }
     }
 
@@ -59,6 +59,6 @@ public class TextAnimator : MonoBehaviour
             yield return null;
 
         }
-        //enable Continue Button
+
     }
 }

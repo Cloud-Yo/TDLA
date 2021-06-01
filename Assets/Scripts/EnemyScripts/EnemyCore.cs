@@ -35,7 +35,7 @@ public class EnemyCore : MonoBehaviour
             Destroy(other.gameObject);
             if (!_shield)
             {
-                BulletHit();
+                DirectHit();
             }
             else
             {
@@ -55,8 +55,9 @@ public class EnemyCore : MonoBehaviour
 
     }
 
-    private void BulletHit()
+    private void DirectHit()
     {
+
         Destroy(_myRB2D);
         Instantiate(_explosionFX, transform.position, Quaternion.identity);
         _mySM.UpdateScore(_points);
