@@ -91,38 +91,38 @@ public class PowerUp : MonoBehaviour
             {
 
                 case 0: //Ammo
-                    collision.GetComponent<PlayerModularShooting>()?.ReloadMainAmmo();
+                    collision.GetComponent<PlayerModularShooting>().ReloadMainAmmo();
                     break;
                 case 1://TripleShot PowerUp
                   
                     if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
                     {
-                        collision.GetComponent<UnityEventHandler>()?.FireEvent(0);
+                        collision.GetComponent<UnityEventHandler>().FireEvent(0);
                     }
-                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(_type);
-                    collision.GetComponent<PlayerAnimations>()?.ActivateSideCannons(true);
+                    collision.GetComponent<PlayerModularShooting>().SwitchWeapon(_type);
+                    collision.GetComponent<PlayerAnimations>().ActivateSideCannons(true);
 
                     break;
                 case 2://GrapeShot PowerUp
                   
                     if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
                     {
-                        collision.GetComponent<UnityEventHandler>()?.FireEvent(0);
+                        collision.GetComponent<UnityEventHandler>().FireEvent(0);
                     }
-                    collision.GetComponent<PlayerModularShooting>()?.SwitchWeapon(_type);
+                    collision.GetComponent<PlayerModularShooting>().SwitchWeapon(_type);
 
                     break;
                 case 3://shields
-                    collision.GetComponent<PlayerShields>()?.ActivateShields();
-                    collision.GetComponent<UnityEventHandler>()?.FireEvent(0);
+                    collision.GetComponent<PlayerShields>().ActivateShields();
+                    collision.GetComponent<UnityEventHandler>().FireEvent(0);
                     break;
                 case 4://Health
-                    collision.GetComponent<PlayerCore>()?.RestoreHealth();
-                    collision.GetComponent<UnityEventHandler>()?.FireEvent(2);
+                    collision.GetComponent<PlayerCore>().RestoreHealth();
+                    collision.GetComponent<UnityEventHandler>().FireEvent(2);
                     break;
                 case 5://Mimic
                     //instantiate explosion
-                    collision.GetComponent<PlayerCore>()?.TakeDamage();
+                    collision.GetComponent<PlayerCore>().TakeDamage();
                     Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                     break;
             }

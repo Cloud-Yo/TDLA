@@ -15,7 +15,11 @@ public class HealthUIManager : MonoBehaviour
 
     public void UpdateLifeLights(int h)
     {
-        _lifeLights[h].SetActive(false);
+        if(h < _lifeLights.Length)
+        {
+            _lifeLights[h]?.SetActive(false);
+        }
+  
     }
 
     public void RestoreLifeLights(int h)

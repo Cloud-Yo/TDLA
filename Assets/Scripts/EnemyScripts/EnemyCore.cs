@@ -30,30 +30,27 @@ public class EnemyCore : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-         if(other.CompareTag("PlayerBullet"))
-         {
-            Destroy(other.gameObject);
-            if (!_shield)
-            {
-                DirectHit();
-            }
-            else
-            {
-                ShieldHit();
-            }
-            
-         }
-         else if(other.CompareTag("Player"))
-         {
-            Destroy(_myRB2D);
+        if(other.CompareTag("Player"))
+        {
             other.GetComponent<PlayerCore>()?.TakeDamage();
-            Instantiate(_explosionFX, transform.position, Quaternion.identity);
-            _mySM.UpdateScore(_points);
-            Destroy(this.gameObject);
-
-         }
+            DirectHit();
+        }
 
     }
+
+
+    public void TakeDamage()
+    {
+        if (!_shield)
+        {
+            DirectHit();
+        }
+        else
+        {
+            ShieldHit();
+        }
+    }
+
 
     private void DirectHit()
     {
@@ -69,7 +66,6 @@ public class EnemyCore : MonoBehaviour
         _myAN.SetTrigger("BreakShield");
         _myAS.PlayOneShot(_shieldBreakAudioClip, 0.5f);
         _shield = false;
-        
     }
 
     private void OnDestroy()

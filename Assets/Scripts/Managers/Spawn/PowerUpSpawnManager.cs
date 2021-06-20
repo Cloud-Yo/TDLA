@@ -38,8 +38,6 @@ public class PowerUpSpawnManager : MonoBehaviour
             int choice = Random.Range(0, _spawnOptions[rand].Items.Length);
             p.GetComponent<PowerUp>().SetType(_spawnOptions[rand].Items[choice]);
             p.transform.SetParent(_container);
-
-            Debug.Log($"Spawned rarity is {_spawnOptions[rand].Rarity}");
         }
         
     }

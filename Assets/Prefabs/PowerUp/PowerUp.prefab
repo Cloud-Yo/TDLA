@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4331797656678969589}
   - component: {fileID: 4331797656678969588}
   - component: {fileID: 97787146}
-  m_Layer: 0
+  - component: {fileID: 6389715914577801887}
+  m_Layer: 10
   m_Name: PowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -96,6 +97,19 @@ MonoBehaviour:
   _playerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &6389715914577801887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331797656678969591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036e84c18feb5704f97a69cfc2e704e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spd: 2
 --- !u!1 &4331797656882730354
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +377,8 @@ MonoBehaviour:
     type: 3}
   _points: 35
   _mimic: 1
+  _shield: 0
+  _shieldBreakAudioClip: {fileID: 0}
 --- !u!58 &3750434634070908814
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -53,18 +53,22 @@ public class PlayerCore : MonoBehaviour
         }
         else
         {
-            _lives--;
-            DisplayDamage();
-
-            _myHUIM.UpdateLifeLights(_lives);
-            if (_lives < 1)
+           if(_lives > 0)
             {
-                
-                _myUIM.GameOver();
-                _myGM.GameOver();
-                Instantiate(_playerDeathExplosion, transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
+                _lives--;
+                DisplayDamage();
+
+                _myHUIM.UpdateLifeLights(_lives);
+                if (_lives < 1)
+                {
+
+                    _myUIM.GameOver();
+                    _myGM.GameOver();
+                    Instantiate(_playerDeathExplosion, transform.position, Quaternion.identity);
+                    Destroy(this.gameObject);
+                }
             }
+
         }
  
     }
@@ -115,17 +119,13 @@ public class PlayerCore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("UI"))
         {
             _myUIM.SetUIOpacity(true);
 
         }
-        if (other.CompareTag("EnemyBullet"))
-        {
-            other.transform.GetComponent<BulletBehavior>().ShowHitFX();
-            Destroy(other.gameObject);
-            TakeDamage();
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
