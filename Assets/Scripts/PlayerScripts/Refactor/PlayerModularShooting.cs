@@ -48,7 +48,7 @@ public class PlayerModularShooting : MonoBehaviour
             _weapons[_weaponIndex].UpdateAmmo(-1);
             _myAC.UpdateAmmoCounter(_weapons[_weaponIndex].Ammo, _weapons[_weaponIndex].MaxAmmo);
             _shotReady = Time.time + _fireRate;
-             GameObject bullet = Instantiate(_weapons[_weaponIndex].WeaponPrefab, transform.position, Quaternion.identity);
+             GameObject bullet = Instantiate(_weapons[_weaponIndex].WeaponPrefab, (Vector2)transform.position + _weapons[_weaponIndex].FirePos, Quaternion.identity);
             bullet.transform.SetParent(_bulletContainer);
             bullet.transform.tag = "PlayerBullet";
             _myAS.PlayOneShot(_weapons[_weaponIndex].SFX, _sfxVolume);

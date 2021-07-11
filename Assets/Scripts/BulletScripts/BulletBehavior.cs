@@ -14,11 +14,12 @@ public class BulletBehavior : MonoBehaviour
         {
             _dir = Vector3.up;
 
-            this.gameObject.layer = 0;
+            
         }
         else if(this.transform.CompareTag("EnemyBullet"))
         {
             _dir = Vector3.down;
+            this.gameObject.layer = 0;
         }
     }
 
@@ -67,10 +68,13 @@ public class BulletBehavior : MonoBehaviour
                     ShowHitFX();
                     Destroy(this.gameObject);
                 }
-                else if (other.transform.CompareTag("PowerUp"))
+                else if (other.CompareTag("PowerUp"))
                 {
-                    Destroy(other.gameObject);
-                    ShowHitFX();
+                    PowerUp pu = other.GetComponent<PowerUp>();
+                    if(pu != null)
+                    {
+                        pu.DestroyPowerUp();
+                    }
                     Destroy(this.gameObject);
                 }
             break;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4331797656678969588}
   - component: {fileID: 97787146}
   - component: {fileID: 6389715914577801887}
+  - component: {fileID: 124532243301865063}
   m_Layer: 10
   m_Name: PowerUp
   m_TagString: PowerUp
@@ -70,8 +71,9 @@ MonoBehaviour:
   - {fileID: 3725257062488507135, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: -388700407768159352, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: -5141695494376465577, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
-  - {fileID: 2596538546632572305, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
+  - {fileID: 9021049524406236025, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: 1338503159802547192, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
+  - {fileID: 2596538546632572305, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   - {fileID: 3725257062488507135, guid: b4baa25e55f99b24a950a29447a8c283, type: 3}
   _spd: 2
   _currentSpd: 2
@@ -110,6 +112,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spd: 2
+--- !u!50 &124532243301865063
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331797656678969591}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4331797656882730354
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331797656882730352}
   - component: {fileID: 4331797656882730355}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PowerUpCog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331797657712716690}
   - component: {fileID: 4331797657712716693}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PowerUpType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +312,7 @@ GameObject:
   - component: {fileID: 8686670436718234270}
   - component: {fileID: 2197421129557287005}
   - component: {fileID: 831729155039771475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mimic
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -35,6 +35,15 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private int _ammoReload;
     public int AmmoReload { get => _ammoReload; set => value = _ammoReload; }
 
+    [SerializeField] private Vector2 _firePos;
+
+    public Vector2 FirePos
+    {
+        get { return _firePos; }
+        set { _firePos = value; }
+    }
+
+
 
     //Ammo can be added or removed
     public void UpdateAmmo(int ammo)

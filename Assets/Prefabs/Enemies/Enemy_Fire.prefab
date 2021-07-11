@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8190702620355595341}
   - component: {fileID: 4922314937900905522}
   - component: {fileID: 1719395823599081566}
+  - component: {fileID: 8037864915487624311}
   - component: {fileID: 626062346965803915}
   - component: {fileID: 4041066001579685250}
   - component: {fileID: 5106685136936332560}
   - component: {fileID: 1632504621967160521}
-  - component: {fileID: 8037864915487624311}
   - component: {fileID: 4754831141808375841}
   m_Layer: 0
   m_Name: Enemy_Fire
@@ -137,6 +137,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8037864915487624311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122045228219727660}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6be022f7f278a549ac6c6a252a7108d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayDist: 1.25
+  _moveDist: 1
+  _spd: 2.5
+  _hitLM:
+    serializedVersion: 2
+    m_Bits: 512
+  _boxSize: {x: 0.35, y: 1.25}
+  _dodging: 0
 --- !u!114 &626062346965803915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +173,8 @@ MonoBehaviour:
     type: 3}
   _points: 50
   _mimic: 0
+  _shield: 0
+  _shieldBreakAudioClip: {fileID: 0}
 --- !u!114 &4041066001579685250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +190,7 @@ MonoBehaviour:
   _spd: 2
   _currentSpd: 2
   _spdDelta: 1
+  _baseSpeed: 0.5
   _myRB: {fileID: 1719395823599081566}
   _gm: {fileID: 0}
   _myEC: {fileID: 626062346965803915}
@@ -192,7 +215,7 @@ MonoBehaviour:
   _fireDistance: 5
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   _myAS: {fileID: 4754831141808375841}
   _fireSFX: {fileID: 8300000, guid: ce20094f70931f94e9f561ea4cca154a, type: 3}
 --- !u!95 &1632504621967160521
@@ -214,26 +237,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8037864915487624311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3122045228219727660}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6be022f7f278a549ac6c6a252a7108d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rayDist: 1.25
-  _moveDist: 1
-  _spd: 2.5
-  _hitLM:
-    serializedVersion: 2
-    m_Bits: 512
-  _boxSize: {x: 0.35, y: 1.25}
-  _dodging: 0
 --- !u!82 &4754831141808375841
 AudioSource:
   m_ObjectHideFlags: 0

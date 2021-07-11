@@ -12,6 +12,7 @@ public class EnemyCore : MonoBehaviour
     [SerializeField] private int _points = 35;
     private Rigidbody2D _myRB2D = null;
     private ScoreManager _mySM = null;
+    private bool _isHit = false;
     [Header("Is Mimic")]
     [SerializeField] private bool _mimic = false;
     [Header("Has Shield")]
@@ -54,11 +55,16 @@ public class EnemyCore : MonoBehaviour
 
     private void DirectHit()
     {
+        if (!_isHit)
+        {
+            _isHit = true;
+            Destroy(_myRB2D);
+            Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            _mySM.UpdateScore(_points);
+            UpdateCount();
+            Destroy(this.gameObject);
+        }
 
-        Destroy(_myRB2D);
-        Instantiate(_explosionFX, transform.position, Quaternion.identity);
-        _mySM.UpdateScore(_points);
-        Destroy(this.gameObject);
     }
 
     private void ShieldHit()
@@ -68,7 +74,8 @@ public class EnemyCore : MonoBehaviour
         _shield = false;
     }
 
-    private void OnDestroy()
+
+    private void UpdateCount()
     {
         if (!_mimic)
         {
@@ -76,4 +83,5 @@ public class EnemyCore : MonoBehaviour
         }
         _myUIM.SetInfoText(true);
     }
+
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52514cb3d8c53794183e44d1161b2f18, type: 3}
   m_Name: SingleShot
   m_EditorClassIdentifier: 
+  _wSOT: 0
   _sfx: {fileID: 8300000, guid: 3a75c2634b9f0b94fbafb5274b4be119, type: 3}
   _shells: 1
   _weaponPrefab: {fileID: 2810848332641422682, guid: 855808fd2dd15d74095010e8d66c514b,
@@ -19,3 +20,4 @@ MonoBehaviour:
   _ammo: 15
   _maxAmmo: 99
   _ammoReload: 15
+  _firePos: {x: 0, y: 0.1}

@@ -14,8 +14,6 @@ public class ShootBackwards : MonoBehaviour
     [SerializeField] private AudioClip _shootSFX = null;
     private Transform _bulletContainer = null;
     private bool _isShooting = false;
-    private bool _playerIsBehind => Vector2.Dot(Vector2.down, ((Vector2)transform.position - (Vector2)_player?.position).normalized) > _angle;
-
     
     void Start()
     {
@@ -26,7 +24,7 @@ public class ShootBackwards : MonoBehaviour
 
     void Update()
     {
-        if(!GameManager.Instance.GameIsOver && _playerIsBehind && !_isShooting)
+        if(!GameManager.Instance.GameIsOver && PlayerIsBehind() && !_isShooting)
         {
            if(transform.position.y > -3.85f)
             {
@@ -59,11 +57,19 @@ public class ShootBackwards : MonoBehaviour
 
             GameObject bullet = Instantiate(_alienBullet, transform.position, Quaternion.FromToRotation(Vector2.down, shootAngle));
             bullet.transform.SetParent(_bulletContainer);
-            Debug.Break();
             _myAS.PlayOneShot(_shootSFX, 0.5f);
             bullets--;
             yield return new WaitForSeconds(0.5f);
 
         }
+    }
+
+    private bool PlayerIsBehind()
+    {
+        if(_player != null)
+        {
+            return Vector2.Dot(Vector2.down, ((Vector2)transform.position - (Vector2)_player.position).normalized) > _angle;
+        }
+        return false;
     }
 }

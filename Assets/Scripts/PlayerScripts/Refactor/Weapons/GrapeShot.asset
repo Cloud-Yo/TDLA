@@ -20,3 +20,4 @@ MonoBehaviour:
   _ammo: 0
   _maxAmmo: 25
   _ammoReload: 10
+  _firePos: {x: 0, y: 0.1}

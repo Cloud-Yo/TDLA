@@ -10,15 +10,18 @@ public class EnemyDodge : MonoBehaviour
     [SerializeField] private LayerMask _hitLM;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private bool _dodging = false;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private bool _canDodge = false;
+    public bool CanDodge { get { return _canDodge; } set { _canDodge = value; } }
+
 
     // Update is called once per frame
     void Update()
     {
-        Dodge();
+        if (_canDodge)
+        {
+            Dodge();
+        }
+
     }
 
     public bool DodgeCheck(out RaycastHit2D hitInfo)
@@ -52,6 +55,7 @@ public class EnemyDodge : MonoBehaviour
 
     IEnumerator MoveLaterally(float x)
     {
+        Debug.Break();
         if (transform.position.x <= x)
         {
             float d = transform.position.x - _moveDist;

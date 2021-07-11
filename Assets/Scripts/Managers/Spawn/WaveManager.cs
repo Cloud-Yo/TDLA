@@ -71,8 +71,9 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator WaveIntervalRoutine()
     {
-        
+
         //display UI message
+        Debug.Log($"CurrentWave = {_waveID}");
         yield return new WaitForSeconds(5f);
         _myWS.StartNewWave(_waveData[_waveID], NextWave);
 

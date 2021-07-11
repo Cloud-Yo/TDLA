@@ -53,7 +53,7 @@ public class PowerUp : MonoBehaviour
     {
         
         _type = i;
-        if (i == 5)
+        if (i == 6)
         {
             i = Random.Range(0, _types.Length - 1);
             _myMB.enabled = true;
@@ -68,7 +68,7 @@ public class PowerUp : MonoBehaviour
     {
         int i = Random.Range(0, _types.Length);
         _type = i;
-        if (i == 5)
+        if (i == 6)
         {
             i = Random.Range(0, _types.Length-1);
             _myMB.enabled = true;
@@ -86,14 +86,14 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //FireEvents: 0 = MainAmmo, 1 = TripleShot, 2 = GrapeShot, 3 = Shields, 4 = Health, 5 = Mimic
+            
             switch(_type)
             {
 
                 case 0: //Ammo
                     collision.GetComponent<PlayerModularShooting>().ReloadMainAmmo();
                     break;
-                case 1://TripleShot PowerUp
+                case 1://TripleShot 
                   
                     if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
                     {
@@ -103,7 +103,7 @@ public class PowerUp : MonoBehaviour
                     collision.GetComponent<PlayerAnimations>().ActivateSideCannons(true);
 
                     break;
-                case 2://GrapeShot PowerUp
+                case 2://GrapeShot 
                   
                     if(collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
                     {
@@ -112,15 +112,23 @@ public class PowerUp : MonoBehaviour
                     collision.GetComponent<PlayerModularShooting>().SwitchWeapon(_type);
 
                     break;
-                case 3://shields
-                    collision.GetComponent<PlayerShields>().ActivateShields();
-                    collision.GetComponent<UnityEventHandler>().FireEvent(0);
+                case 3://Homing Missle
+
+                    if (collision.GetComponent<PlayerModularShooting>().WeaponIndex != _type)
+                    {
+                        collision.GetComponent<UnityEventHandler>().FireEvent(0);
+                    }
+                    collision.GetComponent<PlayerModularShooting>().SwitchWeapon(_type);
                     break;
                 case 4://Health
                     collision.GetComponent<PlayerCore>().RestoreHealth();
                     collision.GetComponent<UnityEventHandler>().FireEvent(2);
                     break;
-                case 5://Mimic
+                case 5://shields
+                    collision.GetComponent<PlayerShields>().ActivateShields();
+                    collision.GetComponent<UnityEventHandler>().FireEvent(0);
+                    break;
+                case 6://Mimic
                     //instantiate explosion
                     collision.GetComponent<PlayerCore>().TakeDamage();
                     Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
@@ -129,5 +137,11 @@ public class PowerUp : MonoBehaviour
             
             Destroy(this.gameObject);
         }
+    }
+
+    public void DestroyPowerUp()
+    {
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

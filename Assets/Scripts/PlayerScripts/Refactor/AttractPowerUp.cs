@@ -21,6 +21,19 @@ public class AttractPowerUp : MonoBehaviour
     }
     private void Update()
     {
+        AttractPowerUps();
+    }
+
+    private void SetAttractionState(bool attracting)
+    {
+        if (_attracting != attracting)
+        {
+            _attracting = attracting;
+        }
+    }
+
+    private void AttractPowerUps()
+    {
         if (_attracting)
         {
             if (!_attractPS.isPlaying)
@@ -49,14 +62,6 @@ public class AttractPowerUp : MonoBehaviour
                 a.Attraction = false;
             }
 
-        }
-    }
-
-    private void SetAttractionState(bool attracting)
-    {
-        if (_attracting != attracting)
-        {
-            _attracting = attracting;
         }
     }
 }
